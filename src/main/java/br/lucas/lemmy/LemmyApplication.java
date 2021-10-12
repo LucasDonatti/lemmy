@@ -3,38 +3,21 @@ package br.lucas.lemmy;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import discord4j.core.DiscordClient;
-import discord4j.core.GatewayDiscordClient;
-import discord4j.core.event.domain.message.MessageCreateEvent;
-import discord4j.core.object.entity.Message;
-import reactor.core.publisher.Mono;
+import br.lucas.lemmy.events.HelloEvent;
+import net.dv8tion.jda.api.JDA;
+import net.dv8tion.jda.api.JDABuilder;
 
 @SpringBootApplication
 public class LemmyApplication {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		SpringApplication.run(LemmyApplication.class, args);
 		
-		DiscordClient client = DiscordClient.create("ODk0NjIwNjM3MDQ0MzAxODY2.YVsqZQ.uokveGoLkPFmojtWHWGFkiZIabM");
-		
-		Mono<Void> login = client.withGateway((GatewayDiscordClient gateway) -> {
-			
-			Mono<Void> handlePingCommand = gateway.on(MessageCreateEvent.class, event -> {
-					Message msg = event.getMessage();
-					
-					if (msg.getContent().equalsIgnoreCase("!ping")) {
-						return msg.getChannel().flatMap(channel -> channel.createMessage("Pong!"));
-					}
-					
-					return Mono.empty();
-				}).then();
-			
-			return handlePingCommand;
-			
-		});
-		
-		login.block();
-		
+        JDA jda = JDABuilder.createDefault("ODk0NjIwNjM3MDQ0MzAxODY2.YVsqZQ.VMf7tVxHqU13ChxMUlupxc639Ww").build();
+        //You can also add event listeners to the already built JDA instance
+        // Note that some events may not be received if the listener is added after calling build()
+        // This includes events such as the ReadyEvent
+        jda.addEventListener(new HelloEvent());
 	}
 
 }
