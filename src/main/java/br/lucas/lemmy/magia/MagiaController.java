@@ -34,6 +34,10 @@ public class MagiaController {
 	public String post(@RequestBody Magia nova) {
 		return service.post(nova);
 	}
+	@PostMapping("/post-many")
+	public List<Magia> postMany(@RequestBody List<Magia> novas) {
+		return service.postMany(novas);
+	}
 	
 	
 	@PutMapping("{id}")
@@ -46,9 +50,6 @@ public class MagiaController {
 	public void delete(@PathVariable("id") String id) {
 		service.delete(id);
 	}
-	
-	
-	
 	
 	
 }

@@ -27,6 +27,9 @@ public class MagiaService {
 		repo.save(nova);
 		return nova.getId();
 	}
+	public List<Magia> postMany(List<Magia> novas) {
+		return repo.saveAllAndFlush(novas);
+	}
 	
 	
 	public String put(Magia modificada, String id) {
