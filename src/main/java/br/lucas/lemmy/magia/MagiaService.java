@@ -21,6 +21,12 @@ public class MagiaService {
 	public Magia get(String id) {
 		return repo.findById(id).get();
 	}
+	public Magia getPeloNome(String nome) {
+		for (Magia magia : repo.findAll())
+			if(magia.getNome().equals(nome))
+				return magia;
+		return null;
+	}
 	
 	
 	public String post(Magia nova) {
