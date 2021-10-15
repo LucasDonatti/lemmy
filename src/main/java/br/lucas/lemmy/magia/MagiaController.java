@@ -24,9 +24,9 @@ public class MagiaController {
 	public List<Magia> getAll() {
 		return service.getAll();
 	}
-	@GetMapping("{id}")
-	public Magia get(@PathVariable("id") String id) {
-		return service.get(id);
+	@GetMapping("/{id}")
+	public Magia getPeloId(@PathVariable("id") String id) {
+		return service.getPeloId(id);
 	}
 	
 	
@@ -40,13 +40,13 @@ public class MagiaController {
 	}
 	
 	
-	@PutMapping("{id}")
+	@PutMapping("/{id}")
 	public String put(@RequestBody Magia modificada, @PathVariable("id") String id) {
 		return service.put(modificada, id);
 	}
 	
 	
-	@DeleteMapping("{id}")
+	@DeleteMapping("/{id}")
 	public void delete(@PathVariable("id") String id) {
 		service.delete(id);
 	}

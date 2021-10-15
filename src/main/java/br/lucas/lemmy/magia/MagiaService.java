@@ -7,25 +7,24 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.lucas.lemmy.exception.BadRequestException;
+import br.lucas.lemmy.exception.NotFoundException;
+
 @Service
 @Transactional
 public class MagiaService {
 	
 	@Autowired
-	private MagiaRepository repo;
+	public MagiaRepository repo;
 	
 	
 	public List<Magia> getAll() {
 		return repo.findAll();
 	}
-	public Magia get(String id) {
+	public Magia getPeloId(String id) {
+		if(!repo.existsById(id))
+			throw new NotFoundException("ID não existente no banco de dados");
 		return repo.findById(id).get();
-	}
-	public Magia getPeloNome(String nome) {
-		for (Magia magia : repo.findAll())
-			if(magia.getNome().equals(nome))
-				return magia;
-		return null;
 	}
 	
 	
@@ -39,6 +38,10 @@ public class MagiaService {
 	
 	
 	public String put(Magia modificada, String id) {
+		if(!repo.existsById(id))
+			throw new NotFoundException("ID não existente no banco de dados");
+		if(!modificada.getId().equals(id))
+			throw new BadRequestException("Para realizar o PUT os IDs do path e do body devem ser iguais");
 		modificada = repo.save(modificada);
 		return modificada.getId();
 	}
