@@ -13,7 +13,7 @@ import br.lucas.lemmy.exception.NotFoundException;
 @Service
 @Transactional
 public class MagiaService {
-	
+
 	@Autowired
 	public MagiaRepository repo;
 	
@@ -29,7 +29,7 @@ public class MagiaService {
 	public Magia getPeloNome(String nome) {
 		List<Magia> magias = repo.findAll();
 		for (Magia magia : magias) {
-			if(magia.getNome().equals(nome)) {
+			if(magia.getNome().toLowerCase().equals(nome.toLowerCase())) {
 				return magia;
 			}
 		}

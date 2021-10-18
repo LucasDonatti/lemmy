@@ -51,5 +51,4 @@ public class MagiaController {
 		service.delete(id);
 	}
 	
-	
 }
