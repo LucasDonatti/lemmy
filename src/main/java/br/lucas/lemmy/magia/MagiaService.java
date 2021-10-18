@@ -26,7 +26,15 @@ public class MagiaService {
 			throw new NotFoundException("ID não existente no banco de dados");
 		return repo.findById(id).get();
 	}
-	
+	public Magia getPeloNome(String nome) {
+		List<Magia> magias = repo.findAll();
+		for (Magia magia : magias) {
+			if(magia.getNome().equals(nome)) {
+				return magia;
+			}
+		}
+		return null;
+	}
 	
 	public String post(Magia nova) {
 		repo.save(nova);
