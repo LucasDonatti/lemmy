@@ -17,7 +17,6 @@ public class MagiaService {
 	@Autowired
 	public MagiaRepository repo;
 	
-	
 	public List<Magia> getAll() {
 		return repo.findAll();
 	}
