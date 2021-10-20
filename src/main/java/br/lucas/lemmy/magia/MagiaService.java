@@ -5,6 +5,8 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import br.lucas.lemmy.exception.BadRequestException;
@@ -16,7 +18,7 @@ public class MagiaService {
 
 	@Autowired
 	public MagiaRepository repo;
-	
+		
 	public List<Magia> getAll() {
 		return repo.findAll();
 	}
@@ -35,12 +37,13 @@ public class MagiaService {
 		return null;
 	}
 	
-	public String post(Magia nova) {
+	
+	public ResponseEntity<String> post(Magia nova) {
 		repo.save(nova);
-		return nova.getId();
+		return ResponseEntity.status(HttpStatus.CREATED).body(nova.getId());
 	}
-	public List<Magia> postMany(List<Magia> novas) {
-		return repo.saveAllAndFlush(novas);
+	public ResponseEntity<List<Magia>> postMany(List<Magia> novas) {
+		return ResponseEntity.status(HttpStatus.CREATED).body(repo.saveAllAndFlush(novas));
 	}
 	
 	

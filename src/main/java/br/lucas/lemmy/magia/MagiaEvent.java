@@ -23,10 +23,6 @@ public class MagiaEvent extends ListenerAdapter {
 			if(msg.equals("hey")) {
 				evento.getChannel().sendMessage(msg + " ho, lets go!").queue();
 			}
-			/*if(service.getPeloId(msg) != null) {
-				Magia magia = service.getPeloId(msg);
-				evento.getChannel().sendMessage(magia.getNome().toUpperCase() + "\n" + magia.getDescricao()).queue();
-			}*/
 			if(service.getPeloNome(msg) != null) {
 				Magia magia = service.getPeloNome(msg);
 				

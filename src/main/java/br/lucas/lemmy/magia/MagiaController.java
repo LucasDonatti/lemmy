@@ -3,6 +3,7 @@ package br.lucas.lemmy.magia;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,7 +20,6 @@ public class MagiaController {
 	@Autowired
 	private MagiaService service;
 	
-	
 	@GetMapping
 	public List<Magia> getAll() {
 		return service.getAll();
@@ -31,11 +31,11 @@ public class MagiaController {
 	
 	
 	@PostMapping
-	public String post(@RequestBody Magia nova) {
+	public ResponseEntity<String> post(@RequestBody Magia nova) {
 		return service.post(nova);
 	}
 	@PostMapping("/post-many")
-	public List<Magia> postMany(@RequestBody List<Magia> novas) {
+	public ResponseEntity<List<Magia>> postMany(@RequestBody List<Magia> novas) {
 		return service.postMany(novas);
 	}
 	
