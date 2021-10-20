@@ -2,12 +2,13 @@ package br.lucas.lemmy.dnd5eapi;
 
 import java.util.List;
 
-public class Magia {
+public class MagiaExterna {
 	private String index;
 	private String name;
 	private List<String> desc;
+	private List<String> higher_level;
 	
-	public Magia() {
+	public MagiaExterna() {
 	}
 
 	public String getIndex() {
@@ -32,6 +33,14 @@ public class Magia {
 
 	public void setDesc(List<String> desc) {
 		this.desc = desc;
+	}
+	
+	public List<String> getHigher_level() {
+		return higher_level;
+	}
+	
+	public void setHigher_level(List<String> higher_level) {
+		this.higher_level = higher_level;
 	}
 	
 }
