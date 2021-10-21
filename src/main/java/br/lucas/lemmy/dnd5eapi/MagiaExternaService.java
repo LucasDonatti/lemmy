@@ -7,11 +7,10 @@ import org.springframework.web.client.RestTemplate;
 public class MagiaExternaService {
 	
 	RestTemplate restTemplate = new RestTemplate();
-	MagiaExterna magia = restTemplate.getForObject("https://www.dnd5eapi.co/api/spells/magic-missile", MagiaExterna.class);
+	String magias = restTemplate.getForObject("https://www.dnd5eapi.co/api/spells", String.class);
 	
-	public MagiaExterna get() {
-		System.out.println(magia.getName());
-		return magia;
+	public String get() {
+		return magias;
 	}
 	
 }

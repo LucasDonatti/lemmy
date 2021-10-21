@@ -13,7 +13,7 @@ public class MagiaExternaController {
 	private MagiaExternaService service;
 	
 	@GetMapping
-	public MagiaExterna get() {
+	public String get() {
 		return service.get();
 	}
 	
