@@ -7,6 +7,7 @@ public class MagiaExterna {
 	private String name;
 	private List<String> desc;
 	private List<String> higher_level;
+	private int level;
 	
 	public MagiaExterna() {
 	}
@@ -41,6 +42,14 @@ public class MagiaExterna {
 	
 	public void setHigher_level(List<String> higher_level) {
 		this.higher_level = higher_level;
+	}
+	
+	public int getLevel() {
+		return level;
+	}
+	
+	public void setLevel(int level) {
+		this.level = level;
 	}
 	
 }
