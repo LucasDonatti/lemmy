@@ -3,6 +3,7 @@ package br.lucas.lemmy.magia;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import br.lucas.lemmy.Bot;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
@@ -11,15 +12,13 @@ public class MagiaEvent extends ListenerAdapter {
 	
 	@Autowired
 	private MagiaService service;
-	
-	private String prefixo = "!lm";
-	private int prefixoTam = prefixo.length();
-	private String msg;
+	@Autowired
+	private Bot bot;
 	
 	public void onMessageReceived(MessageReceivedEvent evento) {
-		msg = evento.getMessage().getContentRaw();
-		if(msg.startsWith(prefixo)) {
-			msg = msg.substring(prefixoTam).trim();
+		String msg = evento.getMessage().getContentRaw();
+		if(msg.startsWith(bot.getPrefixo())) {
+			msg = msg.substring(bot.getPrefixoTam()).trim();
 			if(msg.equals("hey")) {
 				evento.getChannel().sendMessage(msg + " ho, lets go!").queue();
 			}
