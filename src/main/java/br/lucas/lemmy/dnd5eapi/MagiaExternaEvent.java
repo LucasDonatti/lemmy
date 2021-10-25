@@ -20,8 +20,22 @@ public class MagiaExternaEvent extends ListenerAdapter {
 			String msg = evento.getMessage().getContentRaw();
 			if(msg.startsWith(bot.getPrefixo())) {
 				msg = msg.substring(bot.getPrefixoTam()).trim();
-				if(service.getMagiaExternaPeloNome(msg) != null) {
-					evento.getChannel().sendMessage("existe").queue();
+				MagiaExterna magiaExterna = service.getMagiaExternaPeloNome(msg);
+				if(magiaExterna != null) {
+					evento.getChannel().sendMessageFormat("%s\n"
+														+ "%dº Nível\n"
+														, magiaExterna.getName().toUpperCase()
+														, magiaExterna.getLevel()
+							).queue();
+					for (String desc : magiaExterna.getDesc()) {
+						evento.getChannel().sendMessage(desc).queue();
+					}
+					if(magiaExterna.getHigher_level() != null) {
+						evento.getChannel().sendMessage("EM NÍVEIS SUPERIORES. ").queue();
+						for (String higher_level : magiaExterna.getHigher_level()) {
+							evento.getChannel().sendMessage(higher_level).queue();
+						}
+					}
 				}
 			}
 		} catch (Exception e) {
