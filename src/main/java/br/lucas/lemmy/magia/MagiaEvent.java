@@ -16,112 +16,25 @@ public class MagiaEvent extends ListenerAdapter {
 	private Bot bot;
 	
 	public void onMessageReceived(MessageReceivedEvent evento) {
-		String msg = evento.getMessage().getContentRaw();
-		if(msg.startsWith(bot.getPrefixo())) {
-			msg = msg.substring(bot.getPrefixoTam()).trim();
-			if(msg.equals("hey")) {
-				evento.getChannel().sendMessage(msg + " ho, lets go!").queue();
-			}
-			if(service.getPeloNome(msg) != null) {
-				Magia magia = service.getPeloNome(msg);
+		try {
+			String msg = evento.getMessage().getContentRaw();
+			if(msg.startsWith(bot.getPrefixo())) {
+				msg = msg.substring(bot.getPrefixoTam()).trim();
 				
-				// R I T U A L   E   C O N C E N T R A Ç Ã O
-				if(magia.isRitual() && magia.isConcentracao()) {
-					evento.getChannel()
-					.sendMessageFormat("%s\n"
-							+ "%dº Nível de -escola- (ritual)\n"
-							+ "Tempo de Conjuração: %s\n"
-							+ "Alcance: %s\n"
-							+ "Componentes: %s\n"
-							+ "Duração: Concentração, até %s\n\n"
-							+ "%s\n\n"
-							+ "Em Níveis Superiores. %s"
-							, magia.getNome().toUpperCase()
-							, magia.getNivel()
-							, magia.getTempoConjuracao()
-							, magia.getAlcance()
-							, magia.getComponentes()
-							, magia.getDuracao()
-							, magia.getDescricao()
-							, magia.getNiveisAcima()
-							)
+				// P E L O   I N D I C E
+				Magia magia = service.getMagiaPeloIndice(msg);
+				if(magia != null) {
+					evento.getChannel().sendMessageFormat("%s\n"
+														+ "%dº nível"
+														, magia.getName()
+														, magia.getLevel())
 					.queue();
-				} else {
-					
-					// N E N H U M   D O S   D O I S
-					if(!magia.isRitual() && !magia.isConcentracao()) {
-						evento.getChannel()
-						.sendMessageFormat("%s\n"
-								+ "%dº Nível de -escola-\n"
-								+ "Tempo de Conjuração: %s\n"
-								+ "Alcance: %s\n"
-								+ "Componentes: %s\n"
-								+ "Duração: %s\n\n"
-								+ "%s\n\n"
-								+ "Em Níveis Superiores. %s"
-								, magia.getNome().toUpperCase()
-								, magia.getNivel()
-								, magia.getTempoConjuracao()
-								, magia.getAlcance()
-								, magia.getComponentes()
-								, magia.getDuracao()
-								, magia.getDescricao()
-								, magia.getNiveisAcima()
-								)
-						.queue();
-					} else {
-						
-						// R I T U A L
-						if(magia.isRitual()) {
-							evento.getChannel()
-							.sendMessageFormat("%s\n"
-									+ "%dº Nível de -escola- (ritual)\n"
-									+ "Tempo de Conjuração: %s\n"
-									+ "Alcance: %s\n"
-									+ "Componentes: %s\n"
-									+ "Duração: %s\n\n"
-									+ "%s\n\n"
-									+ "Em Níveis Superiores. %s"
-									, magia.getNome().toUpperCase()
-									, magia.getNivel()
-									, magia.getTempoConjuracao()
-									, magia.getAlcance()
-									, magia.getComponentes()
-									, magia.getDuracao()
-									, magia.getDescricao()
-									, magia.getNiveisAcima()
-									)
-							.queue();
-						} else {
-							
-							// C O N C E N T R A Ç Ã O
-							if(magia.isConcentracao()) {
-								evento.getChannel()
-								.sendMessageFormat("%s\n"
-										+ "%dº Nível de -escola-\n"
-										+ "Tempo de Conjuração: %s\n"
-										+ "Alcance: %s\n"
-										+ "Componentes: %s\n"
-										+ "Duração: Concentração, até %s\n\n"
-										+ "%s\n\n"
-										+ "Em Níveis Superiores. %s"
-										, magia.getNome().toUpperCase()
-										, magia.getNivel()
-										, magia.getTempoConjuracao()
-										, magia.getAlcance()
-										, magia.getComponentes()
-										, magia.getDuracao()
-										, magia.getDescricao()
-										, magia.getNiveisAcima()
-										)
-								.queue();
-							}
-						}
-					}
 				}
+				
 			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 	
 }
-

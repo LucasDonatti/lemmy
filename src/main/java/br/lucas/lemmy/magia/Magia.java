@@ -1,130 +1,58 @@
 package br.lucas.lemmy.magia;
 
-import java.util.UUID;
+import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import org.springframework.stereotype.Service;
 
-@Entity
+@Service
 public class Magia {
-	@Id
-	private String id;
-	private String nome;
-	private String descricao;
-	private String niveisAcima;
-	private String alcance;
-	private String componentes;
-	private String material;
-	private boolean ritual;
-	private String duracao;
-	private boolean concentracao;
-	private String tempoConjuracao;
-	private int nivel;
+	private String index;
+	private String name;
+	private List<String> desc;
+	private List<String> higher_level;
+	private int level;
 	
-	// CONSTRUTORES
 	public Magia() {
-		this.id = UUID.randomUUID().toString();
+	}
+
+	public String getIndex() {
+		return index;
+	}
+
+	public void setIndex(String index) {
+		this.index = index;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public List<String> getDesc() {
+		return desc;
+	}
+
+	public void setDesc(List<String> desc) {
+		this.desc = desc;
 	}
 	
-	public Magia(String id) {
-		this.id = id;
+	public List<String> getHigher_level() {
+		return higher_level;
 	}
 	
-	// GETTERS E SETTERS
-	public String getId() {
-		return id;
+	public void setHigher_level(List<String> higher_level) {
+		this.higher_level = higher_level;
 	}
 	
-	public void setId(String id) {
-		this.id = id;
+	public int getLevel() {
+		return level;
 	}
 	
-	public String getNome() {
-		return nome;
-	}
-	
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-	
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-
-	public String getNiveisAcima() {
-		return niveisAcima;
-	}
-
-	public void setNiveisAcima(String niveisAcima) {
-		this.niveisAcima = niveisAcima;
-	}
-
-	public String getAlcance() {
-		return alcance;
-	}
-
-	public void setAlcance(String alcance) {
-		this.alcance = alcance;
-	}
-
-	public String getComponentes() {
-		return componentes;
-	}
-
-	public void setComponentes(String componentes) {
-		this.componentes = componentes;
-	}
-
-	public String getMaterial() {
-		return material;
-	}
-
-	public void setMaterial(String material) {
-		this.material = material;
-	}
-
-	public boolean isRitual() {
-		return ritual;
-	}
-
-	public void setRitual(boolean ritual) {
-		this.ritual = ritual;
-	}
-
-	public String getDuracao() {
-		return duracao;
-	}
-
-	public void setDuracao(String duracao) {
-		this.duracao = duracao;
-	}
-
-	public boolean isConcentracao() {
-		return concentracao;
-	}
-
-	public void setConcentracao(boolean concentracao) {
-		this.concentracao = concentracao;
-	}
-
-	public String getTempoConjuracao() {
-		return tempoConjuracao;
-	}
-
-	public void setTempoConjuracao(String tempoConjuracao) {
-		this.tempoConjuracao = tempoConjuracao;
-	}
-
-	public int getNivel() {
-		return nivel;
-	}
-
-	public void setNivel(int nivel) {
-		this.nivel = nivel;
+	public void setLevel(int level) {
+		this.level = level;
 	}
 	
 }

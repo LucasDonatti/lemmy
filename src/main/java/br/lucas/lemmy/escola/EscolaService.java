@@ -1,4 +1,4 @@
-package br.lucas.lemmy.magia;
+package br.lucas.lemmy.escola;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,48 +9,30 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import br.lucas.lemmy.common.APIReferenceList;
 
 @Service
-public class MagiaService {
-	
+public class EscolaService {
+
 	@Autowired
 	private ObjectMapper jacksonObjectMapper;
 	
 	RestTemplate restTemplate = new RestTemplate();
-	String url = "https://www.dnd5eapi.co/api/spells/";
+	String url = "https://www.dnd5eapi.co/api/magic-schools/";
 	
-	// A L L
 	public APIReferenceList getAll() throws Exception {
 		String retorno = restTemplate.getForObject(url, String.class);
-		APIReferenceList magias = jacksonObjectMapper.readValue(retorno, APIReferenceList.class);
-		return magias;
+		APIReferenceList escolas = jacksonObjectMapper.readValue(retorno, APIReferenceList.class);
+		return escolas;
 	}
-	
-	// P E L O   I N D I C E
-	public Magia getMagiaPeloIndice(String indice) throws Exception {
+
+	public Escola getEscolaPeloIndice(String indice) throws Exception {
 		String retorno = restTemplate.getForObject(url + indice, String.class);
-		Magia magia = jacksonObjectMapper.readValue(retorno, Magia.class);
-		return magia;
+		Escola escola = jacksonObjectMapper.readValue(retorno, Escola.class);
+		return escola;
 	}
-	
-	// P E L O   N O M E
-	public APIReferenceList getMagiaPeloNome(String nome) throws Exception {
+
+	public APIReferenceList getEscolaPeloNome(String nome) throws Exception {
 		String retorno = restTemplate.getForObject(url + "?name=" + nome, String.class);
-		APIReferenceList magias = jacksonObjectMapper.readValue(retorno, APIReferenceList.class);
-		return magias;
+		APIReferenceList escolas = jacksonObjectMapper.readValue(retorno, APIReferenceList.class);
+		return escolas;
 	}
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

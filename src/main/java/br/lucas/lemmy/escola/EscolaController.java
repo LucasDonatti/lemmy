@@ -1,4 +1,4 @@
-package br.lucas.lemmy.magia;
+package br.lucas.lemmy.escola;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.RestController;
 import br.lucas.lemmy.common.APIReferenceList;
 
 @RestController
-@RequestMapping("/api/magias")	
-public class MagiaController {
+@RequestMapping("/api/escolas")
+public class EscolaController {
 
 	@Autowired
-	private MagiaService service;
+	private EscolaService service;
 	
 	@GetMapping
 	public APIReferenceList getAll() throws Exception {
@@ -21,13 +21,13 @@ public class MagiaController {
 	}
 	
 	@GetMapping("/indice={indice}")
-	public Magia getMagiaPeloIndice(@PathVariable("indice") String indice) throws Exception {
-		return service.getMagiaPeloIndice(indice);
+	public Escola getEscolaPeloIndice(@PathVariable("indice") String indice) throws Exception {
+		return service.getEscolaPeloIndice(indice);
 	}
 	
 	@GetMapping("/nome={nome}")
-	public APIReferenceList getMagiaPeloNome(@PathVariable("nome") String nome) throws Exception {
-		return service.getMagiaPeloNome(nome);
+	public APIReferenceList getEscolaPeloNome(@PathVariable("nome") String nome) throws Exception {
+		return service.getEscolaPeloNome(nome);
 	}
 	
 }
