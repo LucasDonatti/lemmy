@@ -1,8 +1,8 @@
 package br.lucas.lemmy.escola;
 
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
+@Component
 public class Escola {
 	private String index;
 	private String name;
@@ -11,7 +11,7 @@ public class Escola {
 	
 	public Escola() {
 	}
-
+	
 	public String getIndex() {
 		return index;
 	}

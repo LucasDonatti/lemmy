@@ -6,17 +6,17 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class APIReferenceList {
-	private int count;
+	private Integer count;
 	private List<APIReference> results;
 	
 	public APIReferenceList() {
 	}
 	
-	public int getCount() {
+	public Integer getCount() {
 		return count;
 	}
 	
-	public void setCount(int count) {
+	public void setCount(Integer count) {
 		this.count = count;
 	}
 	

@@ -26,8 +26,13 @@ public class MagiaController {
 	}
 	
 	@GetMapping("/nome={nome}")
-	public APIReferenceList getMagiaPeloNome(@PathVariable("nome") String nome) throws Exception {
-		return service.getMagiaPeloNome(nome);
+	public APIReferenceList getMagiasPeloNome(@PathVariable("nome") String nome) throws Exception {
+		return service.getMagiasPeloNome(nome);
+	}
+	
+	@GetMapping("/nivel={nivel}")
+	public APIReferenceList getMagiasPeloNivel(@PathVariable("nivel") String nivel) throws Exception {
+		return service.getMagiasPeloNivel(nivel);
 	}
 	
 }

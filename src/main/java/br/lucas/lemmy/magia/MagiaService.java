@@ -32,8 +32,14 @@ public class MagiaService {
 	}
 	
 	// P E L O   N O M E
-	public APIReferenceList getMagiaPeloNome(String nome) throws Exception {
+	public APIReferenceList getMagiasPeloNome(String nome) throws Exception {
 		String retorno = restTemplate.getForObject(url + "?name=" + nome, String.class);
+		APIReferenceList magias = jacksonObjectMapper.readValue(retorno, APIReferenceList.class);
+		return magias;
+	}
+	
+	public APIReferenceList getMagiasPeloNivel(String nivel) throws Exception {
+		String retorno = restTemplate.getForObject(url + "?level=" + nivel, String.class);
 		APIReferenceList magias = jacksonObjectMapper.readValue(retorno, APIReferenceList.class);
 		return magias;
 	}
