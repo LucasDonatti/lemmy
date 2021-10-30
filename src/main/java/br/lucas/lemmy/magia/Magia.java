@@ -78,7 +78,7 @@ public class Magia {
 		this.material = material;
 	}
 
-	public Boolean getRitual() {
+	public Boolean isRitual() {
 		return ritual;
 	}
 
@@ -94,7 +94,7 @@ public class Magia {
 		this.duration = duration;
 	}
 
-	public Boolean getConcentration() {
+	public Boolean isConcentration() {
 		return concentration;
 	}
 
