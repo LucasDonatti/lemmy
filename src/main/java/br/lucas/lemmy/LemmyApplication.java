@@ -6,7 +6,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import br.lucas.lemmy.magia.MagiaEvent;
-import br.lucas.lemmy.magia.MagiaEvent;
 import net.dv8tion.jda.api.JDABuilder;
 
 @SpringBootApplication	
@@ -22,9 +21,9 @@ public class LemmyApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-	    JDABuilder builder = JDABuilder.createDefault("");
-	    builder.addEventListeners(magia);
-	    builder.build();
+//	    JDABuilder builder = JDABuilder.createDefault("");
+//	    builder.addEventListeners(magia);
+//	    builder.build();
 
 	}
 

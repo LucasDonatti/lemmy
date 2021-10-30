@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.lucas.lemmy.common.APIReferenceList;
+
 @RestController
 @RequestMapping("/api/magias")	
 public class MagiaController {
@@ -16,6 +18,11 @@ public class MagiaController {
 	@GetMapping("/indice={indice}")
 	public Magia getMagiaPeloIndice(@PathVariable("indice") String indice) throws Exception {
 		return service.getMagiaPeloIndice(indice);
+	}
+	
+	@GetMapping("/nome={nome}")
+	public APIReferenceList getMagiasPeloNome(@PathVariable("nome") String nome) throws Exception {
+		return service.getMagiasPeloNome(nome);
 	}
 	
 }
