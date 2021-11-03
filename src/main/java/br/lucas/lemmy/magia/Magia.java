@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
+import br.lucas.lemmy.common.APIReference;
+
 @Component
 public class Magia {
 	private String index;
@@ -18,6 +20,7 @@ public class Magia {
 	private Boolean concentration;
 	private String casting_time;
 	private Integer level;
+	private APIReference school;
 	
 	public Magia() {
 	}
@@ -116,6 +119,14 @@ public class Magia {
 	
 	public void setLevel(Integer level) {
 		this.level = level;
+	}
+	
+	public APIReference getSchool() {
+		return school;
+	}
+	
+	public void setSchool(APIReference school) {
+		this.school = school;
 	}
 	
 }

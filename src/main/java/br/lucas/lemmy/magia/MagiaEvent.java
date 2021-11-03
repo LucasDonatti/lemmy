@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 import br.lucas.lemmy.Bot;
 import br.lucas.lemmy.common.APIReferenceList;
-import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 @Component
@@ -19,7 +19,7 @@ public class MagiaEvent extends ListenerAdapter {
 	private Magia magia;
 	private APIReferenceList magias;
 	
-	public void onMessageReceived(MessageReceivedEvent evento) {
+	public void onGuildMessageReceived(GuildMessageReceivedEvent evento) {
 		try {
 			String msg = evento.getMessage().getContentRaw();
 			if(msg.startsWith(bot.getPrefixo())) {
