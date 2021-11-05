@@ -18,7 +18,7 @@ public class EscolaService {
 	String url = "https://www.dnd5eapi.co/api/magic-schools/";
 	
 	// P E L O   I N D I C E
-	public Escola getEscolaPeloIndice(String indice) throws Exception {
+	public Escola obterPeloIndiceAPIExterna(String indice) throws Exception {
 		try {
 			String retorno = restTemplate.getForObject(url + indice, String.class);
 			Escola escola = jacksonObjectMapper.readValue(retorno, Escola.class);
@@ -30,7 +30,7 @@ public class EscolaService {
 	}
 	
 	// P E L O   N O M E
-	public APIReferenceList getEscolasPeloNome(String nome) throws Exception {
+	public APIReferenceList obterPeloNomeAPIExterna(String nome) throws Exception {
 		String retorno = restTemplate.getForObject(url + "?name=" + nome, String.class);
 		APIReferenceList escolas = jacksonObjectMapper.readValue(retorno, APIReferenceList.class);
 		return escolas;

@@ -1,18 +1,35 @@
 package br.lucas.lemmy.magia;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.UUID;
+
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import org.springframework.stereotype.Component;
 
 import br.lucas.lemmy.common.APIReference;
 
 @Component
+@Entity
 public class Magia {
+	@Id
+	private String id;
 	private String index;
 	private String name;
+	@Column(name="description", columnDefinition = "text")
+	@ElementCollection(targetClass=String.class)
 	private List<String> desc;
+	@Column(columnDefinition = "text")
+	@ElementCollection(targetClass=String.class)
 	private List<String> higher_level;
 	private String range;
+	@ElementCollection(targetClass=String.class)
 	private List<String> components;
 	private String material;
 	private Boolean ritual;
@@ -20,11 +37,22 @@ public class Magia {
 	private Boolean concentration;
 	private String casting_time;
 	private Integer level;
+	@ManyToOne
+	@JoinColumn(name="school_id")
 	private APIReference school;
 	
 	public Magia() {
+		this.id = UUID.randomUUID().toString();
+	}
+	
+	public Magia(String id) {
+		this.id = id;
 	}
 
+	public String getId() {
+		return id;
+	}
+	
 	public String getIndex() {
 		return index;
 	}
@@ -127,6 +155,23 @@ public class Magia {
 	
 	public void setSchool(APIReference school) {
 		this.school = school;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Magia other = (Magia) obj;
+		return Objects.equals(id, other.id);
 	}
 	
 }

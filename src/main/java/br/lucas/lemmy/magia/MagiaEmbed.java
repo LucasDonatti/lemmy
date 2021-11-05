@@ -12,16 +12,16 @@ public class MagiaEmbed {
 	public MessageEmbed criarMagiaEmbed(Magia magia) {
 		EmbedBuilder eb = new EmbedBuilder();
 		
-		if(magia.getLevel().equals(0))
-			eb.addField(magia.getName(), magia.getSchool().getName() + " cantrip", false);
-		else if(magia.getLevel().equals(1))
-			eb.addField(magia.getName(), magia.getLevel() + "st level " + magia.getSchool().getName().toLowerCase(), false);
-		else if(magia.getLevel().equals(2))
-			eb.addField(magia.getName(), magia.getLevel() + "nd level " + magia.getSchool().getName().toLowerCase(), false);
-		else if(magia.getLevel().equals(3))
-			eb.addField(magia.getName(), magia.getLevel() + "rd level " + magia.getSchool().getName().toLowerCase(), false);
-		else
-			eb.addField(magia.getName(), magia.getLevel() + "th level " + magia.getSchool().getName().toLowerCase(), false);
+//		if(magia.getLevel().equals(0))
+//			eb.addField(magia.getName(), magia.getSchool().getName() + " cantrip", false);
+//		else if(magia.getLevel().equals(1))
+//			eb.addField(magia.getName(), magia.getLevel() + "st level " + magia.getSchool().getName().toLowerCase(), false);
+//		else if(magia.getLevel().equals(2))
+//			eb.addField(magia.getName(), magia.getLevel() + "nd level " + magia.getSchool().getName().toLowerCase(), false);
+//		else if(magia.getLevel().equals(3))
+//			eb.addField(magia.getName(), magia.getLevel() + "rd level " + magia.getSchool().getName().toLowerCase(), false);
+//		else
+//			eb.addField(magia.getName(), magia.getLevel() + "th level " + magia.getSchool().getName().toLowerCase(), false);
 		
 		eb.addField("Casting Time: ", magia.getCasting_time(), false);
 		eb.addField("Range: ", magia.getRange(), false);

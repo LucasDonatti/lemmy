@@ -26,15 +26,15 @@ public class MagiaEvent extends ListenerAdapter {
 				msg = msg.substring(bot.getPrefixoTam()).trim();
 				
 				// P E L O   I N D I C E
-				magia = service.getMagiaPeloIndice(msg);
+				magia = service.obterPeloIndiceAPIExterna(msg);
 				if(magia != null) {
 					MagiaEmbed me = new MagiaEmbed();
 					evento.getChannel().sendMessageEmbeds(me.criarMagiaEmbed(magia)).queue();
 				} else {
 					// P E L O   N O M E
-					magias = service.getMagiasPeloNome(msg);
+					magias = service.obterPeloNomeAPIExterna(msg);
 					if(magias.getCount().equals(1)) {
-						magia = service.getMagiaPeloIndice(magias.getResults().get(0).getIndex());
+						magia = service.obterPeloIndiceAPIExterna(magias.getResults().get(0).getIndex());
 						
 						MagiaEmbed me = new MagiaEmbed();
 						evento.getChannel().sendMessageEmbeds(me.criarMagiaEmbed(magia)).queue();

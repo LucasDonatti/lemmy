@@ -16,13 +16,13 @@ public class EscolaController {
 	private EscolaService service;
 	
 	@GetMapping("/indice={indice}")
-	public Escola getMagiaPeloIndice(@PathVariable("indice") String indice) throws Exception {
-		return service.getEscolaPeloIndice(indice);
+	public Escola getPeloIndiceAPIExterna(@PathVariable("indice") String indice) throws Exception {
+		return service.obterPeloIndiceAPIExterna(indice);
 	}
 	
 	@GetMapping("/nome={nome}")
-	public APIReferenceList getMagiasPeloNome(@PathVariable("nome") String nome) throws Exception {
-		return service.getEscolasPeloNome(nome);
+	public APIReferenceList getPeloNomeAPIExterna(@PathVariable("nome") String nome) throws Exception {
+		return service.obterPeloNomeAPIExterna(nome);
 	}
 	
 }
