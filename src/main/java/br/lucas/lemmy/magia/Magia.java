@@ -6,7 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 import br.lucas.lemmy.base.BaseEntity;
 import br.lucas.lemmy.escola.Escola;
@@ -52,7 +52,7 @@ public class Magia extends BaseEntity {
 	@Column(nullable = false)
 	private Integer nivel;
 	
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "escola_id")
 	private Escola escola;
 	
