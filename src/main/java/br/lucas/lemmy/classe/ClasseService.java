@@ -1,4 +1,4 @@
-package br.lucas.lemmy.magia;
+package br.lucas.lemmy.classe;
 
 import javax.transaction.Transactional;
 
@@ -8,6 +8,6 @@ import br.lucas.lemmy.base.BaseCrudService;
 
 @Service
 @Transactional
-public class MagiaService extends BaseCrudService<Magia, MagiaRepository> {
+public class ClasseService extends BaseCrudService<Classe, ClasseRepository> {
 
 }

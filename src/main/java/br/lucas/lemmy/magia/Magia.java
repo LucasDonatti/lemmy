@@ -1,104 +1,107 @@
 package br.lucas.lemmy.magia;
 
 import java.util.List;
-import java.util.Objects;
-import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
-import org.springframework.stereotype.Component;
+import br.lucas.lemmy.base.BaseEntity;
+import br.lucas.lemmy.escola.Escola;
 
-import br.lucas.lemmy.common.APIReference;
-
-@Component
 @Entity
-public class Magia {
-	@Id
-	private String id;
-	private String index;
-	private String name;
-	@Column(name="description", columnDefinition = "text")
-	@ElementCollection(targetClass=String.class)
-	private List<String> desc;
+public class Magia extends BaseEntity {
+	
+	@Column(nullable = false, unique = true)
+	private String indice;
+	
+	@Column(nullable = false, unique = true)
+	private String nome;
+	
+	@Column(columnDefinition = "text", nullable = false)
+	@ElementCollection(targetClass = String.class)
+	private List<String> descricao;
+	
 	@Column(columnDefinition = "text")
-	@ElementCollection(targetClass=String.class)
-	private List<String> higher_level;
-	private String range;
-	@ElementCollection(targetClass=String.class)
-	private List<String> components;
+	@ElementCollection(targetClass = String.class)
+	private List<String> niveisAcima;
+	
+	@Column(nullable = false)
+	private String alcance;
+	
+	@Column(nullable = false)
+	@ElementCollection(targetClass = String.class)
+	private List<String> componentes;
+	
 	private String material;
+	
+	@Column(nullable = false)
 	private Boolean ritual;
-	private String duration;
-	private Boolean concentration;
-	private String casting_time;
-	private Integer level;
-	@ManyToOne
-	@JoinColumn(name="school_id")
-	private APIReference school;
 	
-	public Magia() {
-		this.id = UUID.randomUUID().toString();
-	}
+	@Column(nullable = false)
+	private String duracao;
 	
-	public Magia(String id) {
-		this.id = id;
-	}
-
-	public String getId() {
-		return id;
-	}
+	@Column(nullable = false)
+	private Boolean concentracao;
 	
-	public String getIndex() {
-		return index;
-	}
-
-	public void setIndex(String index) {
-		this.index = index;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public List<String> getDesc() {
-		return desc;
-	}
-
-	public void setDesc(List<String> desc) {
-		this.desc = desc;
-	}
+	@Column(nullable = false)
+	private String tempoDeConjuracao;
 	
-	public List<String> getHigher_level() {
-		return higher_level;
-	}
+	@Column(nullable = false)
+	private Integer nivel;
 	
-	public void setHigher_level(List<String> higher_level) {
-		this.higher_level = higher_level;
-	}
+	@OneToOne
+	@JoinColumn(name = "escola_id")
+	private Escola escola;
 	
-	public String getRange() {
-		return range;
+	public String getIndice() {
+		return indice;
 	}
 
-	public void setRange(String range) {
-		this.range = range;
+	public void setIndice(String indice) {
+		this.indice = indice;
 	}
 
-	public List<String> getComponents() {
-		return components;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setComponents(List<String> components) {
-		this.components = components;
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public List<String> getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(List<String> descricao) {
+		this.descricao = descricao;
+	}
+
+	public List<String> getNiveisAcima() {
+		return niveisAcima;
+	}
+
+	public void setNiveisAcima(List<String> niveisAcima) {
+		this.niveisAcima = niveisAcima;
+	}
+
+	public String getAlcance() {
+		return alcance;
+	}
+
+	public void setAlcance(String alcance) {
+		this.alcance = alcance;
+	}
+
+	public List<String> getComponentes() {
+		return componentes;
+	}
+
+	public void setComponentes(List<String> componentes) {
+		this.componentes = componentes;
 	}
 
 	public String getMaterial() {
@@ -109,7 +112,7 @@ public class Magia {
 		this.material = material;
 	}
 
-	public Boolean isRitual() {
+	public Boolean getRitual() {
 		return ritual;
 	}
 
@@ -117,61 +120,44 @@ public class Magia {
 		this.ritual = ritual;
 	}
 
-	public String getDuration() {
-		return duration;
+	public String getDuracao() {
+		return duracao;
 	}
 
-	public void setDuration(String duration) {
-		this.duration = duration;
+	public void setDuracao(String duracao) {
+		this.duracao = duracao;
 	}
 
-	public Boolean isConcentration() {
-		return concentration;
+	public Boolean getConcentracao() {
+		return concentracao;
 	}
 
-	public void setConcentration(Boolean concentration) {
-		this.concentration = concentration;
+	public void setConcentracao(Boolean concentracao) {
+		this.concentracao = concentracao;
 	}
 
-	public String getCasting_time() {
-		return casting_time;
+	public String getTempoDeConjuracao() {
+		return tempoDeConjuracao;
 	}
 
-	public void setCasting_time(String casting_time) {
-		this.casting_time = casting_time;
+	public void setTempoDeConjuracao(String tempoDeConjuracao) {
+		this.tempoDeConjuracao = tempoDeConjuracao;
 	}
 
-	public Integer getLevel() {
-		return level;
+	public Integer getNivel() {
+		return nivel;
+	}
+
+	public void setNivel(Integer nivel) {
+		this.nivel = nivel;
 	}
 	
-	public void setLevel(Integer level) {
-		this.level = level;
+	public Escola getEscola() {
+		return escola;
 	}
 	
-	public APIReference getSchool() {
-		return school;
-	}
-	
-	public void setSchool(APIReference school) {
-		this.school = school;
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Magia other = (Magia) obj;
-		return Objects.equals(id, other.id);
+	public void setEscola(Escola escola) {
+		this.escola = escola;
 	}
 	
 }

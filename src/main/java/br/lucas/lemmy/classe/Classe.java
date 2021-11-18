@@ -1,4 +1,4 @@
-package br.lucas.lemmy.escola;
+package br.lucas.lemmy.classe;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import javax.persistence.Entity;
 import br.lucas.lemmy.base.BaseEntity;
 
 @Entity
-public class Escola extends BaseEntity {
+public class Classe extends BaseEntity {
 	
 	@Column(nullable = false, unique = true)
 	private String indice;
@@ -24,23 +24,23 @@ public class Escola extends BaseEntity {
 	public String getIndice() {
 		return indice;
 	}
-
+	
 	public void setIndice(String indice) {
 		this.indice = indice;
 	}
-
+	
 	public String getNome() {
 		return nome;
 	}
-
+	
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
+	
 	public List<String> getDescricao() {
 		return descricao;
 	}
-
+	
 	public void setDescricao(List<String> descricao) {
 		this.descricao = descricao;
 	}
