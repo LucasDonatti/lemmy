@@ -2,6 +2,7 @@ package br.lucas.lemmy.magia;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
@@ -14,7 +15,6 @@ import br.lucas.lemmy.escola.Escola;
 @Entity
 public class Magia extends BaseEntity {
 	
-	@Column(nullable = false, unique = true)
 	private String indice;
 	
 	@Column(nullable = false, unique = true)
@@ -52,14 +52,14 @@ public class Magia extends BaseEntity {
 	@Column(nullable = false)
 	private Integer nivel;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "escola_id")
 	private Escola escola;
 	
 	public String getIndice() {
 		return indice;
 	}
-
+	
 	public void setIndice(String indice) {
 		this.indice = indice;
 	}
@@ -70,6 +70,7 @@ public class Magia extends BaseEntity {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+		this.indice = nome.toLowerCase().replace(" ", "-");
 	}
 
 	public List<String> getDescricao() {

@@ -11,7 +11,6 @@ import br.lucas.lemmy.base.BaseEntity;
 @Entity
 public class Escola extends BaseEntity {
 	
-	@Column(nullable = false, unique = true)
 	private String indice;
 	
 	@Column(nullable = false, unique = true)
@@ -24,7 +23,7 @@ public class Escola extends BaseEntity {
 	public String getIndice() {
 		return indice;
 	}
-
+	
 	public void setIndice(String indice) {
 		this.indice = indice;
 	}
@@ -35,6 +34,7 @@ public class Escola extends BaseEntity {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+		this.indice = nome.toLowerCase().replace(" ", "-");
 	}
 
 	public List<String> getDescricao() {
