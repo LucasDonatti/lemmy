@@ -10,6 +10,9 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 public class MagiaEvent extends ListenerAdapter {
 	
 	@Autowired
+	private MagiaRepository repo;
+	
+	@Autowired
 	private Bot bot;
 
 	public void onGuildMessageReceived(GuildMessageReceivedEvent evento) {
@@ -18,8 +21,11 @@ public class MagiaEvent extends ListenerAdapter {
 			if(msg.startsWith(bot.getPrefixo())) {
 				
 				msg = msg.substring(bot.getPrefixoTam()).trim();
-				if(msg.equals("ola")) {
-					evento.getChannel().sendMessage("mundo").queue();
+				try {
+					Magia magia = repo.buscarMagiaPorNome(msg);
+					evento.getChannel().sendMessage(magia.getNome()).queue();
+				} catch (Exception e) {
+					// TODO: handle exception
 				}
 				
 			}
