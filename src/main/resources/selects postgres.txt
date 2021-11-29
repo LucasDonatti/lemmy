@@ -1,4 +1,0 @@
--- --------------------------------
--- M A G I A S   E   E S C O L A S 
--- --------------------------------
-select mag.id, mag.indice, mag.nome, esc.nome from magia mag inner join escola esc on mag.escola_id = esc.id order by mag.nome;

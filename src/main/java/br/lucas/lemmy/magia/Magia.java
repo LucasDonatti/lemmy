@@ -2,15 +2,13 @@ package br.lucas.lemmy.magia;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 
 import br.lucas.lemmy.base.BaseEntity;
-import br.lucas.lemmy.escola.Escola;
 
 @Entity
 public class Magia extends BaseEntity {
@@ -52,9 +50,15 @@ public class Magia extends BaseEntity {
 	@Column(nullable = false)
 	private Integer nivel;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "escola_id")
+	@Column(nullable = false)
+	@Enumerated(EnumType.STRING)
 	private Escola escola;
+	
+	@Column(nullable = false)
+	@Enumerated(EnumType.STRING)
+	@ElementCollection(targetClass = Classe.class)
+	private List<Classe> classes;
+	
 	
 	public String getIndice() {
 		return indice;
@@ -159,6 +163,14 @@ public class Magia extends BaseEntity {
 	
 	public void setEscola(Escola escola) {
 		this.escola = escola;
+	}
+	
+	public List<Classe> getClasses() {
+		return classes;
+	}
+	
+	public void setClasses(List<Classe> classes) {
+		this.classes = classes;
 	}
 	
 }
