@@ -1,4 +1,6 @@
 package br.lucas.lemmy.magia;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -22,8 +24,17 @@ public class MagiaEvent extends ListenerAdapter {
 				
 				msg = msg.substring(bot.getPrefixoTam()).trim();
 				try {
+					
 					Magia magia = repo.buscarMagiaPorNome(msg);
-					evento.getChannel().sendMessage(magia.getNome()).queue();
+					evento.getChannel().sendMessage("magia: " + magia.getNome()).queue();
+					evento.getChannel().sendMessage("nivel: " + magia.getNivel()).queue();
+					evento.getChannel().sendMessage("escola: " + magia.getEscola()).queue();
+					
+					List<String> descricao = repo.buscarMagiaDescricao(magia.getId());
+					for(int i = 0; i < descricao.size(); i++) {
+						evento.getChannel().sendMessage("descricao[" + i + "]: " + descricao.get(i)).queue();
+					}
+					
 				} catch (Exception e) {
 					// TODO: handle exception
 				}
