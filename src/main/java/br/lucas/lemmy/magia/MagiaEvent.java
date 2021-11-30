@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import br.lucas.lemmy.Bot;
+import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
@@ -26,14 +27,18 @@ public class MagiaEvent extends ListenerAdapter {
 				try {
 					
 					Magia magia = repo.buscarMagiaPorNome(msg);
-					evento.getChannel().sendMessage("magia: " + magia.getNome()).queue();
-					evento.getChannel().sendMessage("nivel: " + magia.getNivel()).queue();
-					evento.getChannel().sendMessage("escola: " + magia.getEscola()).queue();
-					
 					List<String> descricao = repo.buscarMagiaDescricao(magia.getId());
-					for(int i = 0; i < descricao.size(); i++) {
-						evento.getChannel().sendMessage("descricao[" + i + "]: " + descricao.get(i)).queue();
-					}
+					List<String> componentes = repo.buscarMagiaComponentes(magia.getId());
+					List<String> niveis_acima = repo.buscarMagiaNiveisAcima(magia.getId());
+					List<Classe> classes = repo.buscarMagiaClasses(magia.getId());
+					
+					EmbedBuilder eb = new EmbedBuilder();
+					eb.setTitle(magia.getNome());
+					
+					if(magia.getNivel().equals(0))
+						eb.setDescription("Truque de " + magia.getEscola().toString().toLowerCase());
+					
+					evento.getChannel().sendMessageEmbeds(eb.build()).queue();
 					
 				} catch (Exception e) {
 					// TODO: handle exception
