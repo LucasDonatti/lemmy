@@ -35,12 +35,12 @@ public class MagiaEvent extends ListenerAdapter {
 					EmbedBuilder eb = new EmbedBuilder();
 					
 					if(magia.getNivel().equals(0)) {
-						eb.addField(magia.getNome(), "Truque de " + magia.getEscola().toString().toLowerCase(), false);
+						eb.addField(magia.getNome().toUpperCase(), "Truque de " + magia.getEscola().toString().toLowerCase(), false);
 					} else {
 						if(magia.isRitual()) {
-							eb.addField(magia.getNome(), magia.getNivel() + "º nível de " + magia.getEscola().toString().toLowerCase() + " (ritual)", false);
+							eb.addField(magia.getNome().toUpperCase(), magia.getNivel() + "º nível de " + magia.getEscola().toString().toLowerCase() + " (ritual)", false);
 						} else {
-							eb.addField(magia.getNome(), magia.getNivel() + "º nível de " + magia.getEscola().toString().toLowerCase(), false);
+							eb.addField(magia.getNome().toUpperCase(), magia.getNivel() + "º nível de " + magia.getEscola().toString().toLowerCase(), false);
 						}
 					}
 					
