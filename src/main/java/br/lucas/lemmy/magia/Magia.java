@@ -117,7 +117,7 @@ public class Magia extends BaseEntity {
 		this.material = material;
 	}
 
-	public Boolean getRitual() {
+	public Boolean isRitual() {
 		return ritual;
 	}
 
@@ -133,7 +133,7 @@ public class Magia extends BaseEntity {
 		this.duracao = duracao;
 	}
 
-	public Boolean getConcentracao() {
+	public Boolean isConcentracao() {
 		return concentracao;
 	}
 

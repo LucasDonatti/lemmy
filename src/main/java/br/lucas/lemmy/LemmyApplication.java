@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import br.lucas.lemmy.magia.MagiaEvent;
 import net.dv8tion.jda.api.JDABuilder;
 
-@SpringBootApplication	
+@SpringBootApplication
 public class LemmyApplication implements CommandLineRunner {
 
 //	@Autowired

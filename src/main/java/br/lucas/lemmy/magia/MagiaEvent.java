@@ -33,10 +33,41 @@ public class MagiaEvent extends ListenerAdapter {
 					List<Classe> classes = repo.buscarMagiaClasses(magia.getId());
 					
 					EmbedBuilder eb = new EmbedBuilder();
-					eb.setTitle(magia.getNome());
 					
-					if(magia.getNivel().equals(0))
-						eb.setDescription("Truque de " + magia.getEscola().toString().toLowerCase());
+					if(magia.getNivel().equals(0)) {
+						eb.addField(magia.getNome(), "Truque de " + magia.getEscola().toString().toLowerCase(), false);
+					} else {
+						if(magia.isRitual()) {
+							eb.addField(magia.getNome(), magia.getNivel() + "º nível de " + magia.getEscola().toString().toLowerCase() + " (ritual)", false);
+						} else {
+							eb.addField(magia.getNome(), magia.getNivel() + "º nível de " + magia.getEscola().toString().toLowerCase(), false);
+						}
+					}
+					
+					eb.addField("Classes: ", classes.toString().toLowerCase(), false);
+					eb.addField("Tempo de Conjuração: ", magia.getTempoDeConjuracao(), false);
+					eb.addField("Alcance: ", magia.getAlcance(), false);
+					if(magia.getMaterial() != null) {
+						eb.addField("Componentes: ", componentes.toString() + " (" + magia.getMaterial() + ")", false);
+					} else {
+						eb.addField("Componentes: ", componentes.toString(), false);
+					}
+					
+					if(magia.isConcentracao()) {
+						eb.addField("Duração: ", "Concentração, até " + magia.getDuracao(), false);
+					} else {
+						eb.addField("Duração: ", magia.getDuracao(), false);
+					}
+					
+					for(int i = 0; i < descricao.size(); i++) {
+						eb.addField("", descricao.get(i), false);
+					}
+					
+					if(niveis_acima != null) {
+						for(int i = 0; i < niveis_acima.size(); i++) {
+							eb.addField("", niveis_acima.get(i), false);
+						}
+					}
 					
 					evento.getChannel().sendMessageEmbeds(eb.build()).queue();
 					
