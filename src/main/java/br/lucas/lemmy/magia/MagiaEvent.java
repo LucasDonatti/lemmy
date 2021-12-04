@@ -1,5 +1,4 @@
 package br.lucas.lemmy.magia;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -13,7 +12,7 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 public class MagiaEvent extends ListenerAdapter {
 	
 	@Autowired
-	private MagiaRepository repo;
+	private MagiaService service;
 	
 	@Autowired
 	private Bot bot;
@@ -26,11 +25,7 @@ public class MagiaEvent extends ListenerAdapter {
 				msg = msg.substring(bot.getPrefixoTam()).trim();
 				try {
 					
-					Magia magia = repo.buscarMagiaPorNome(msg);
-					List<String> descricao = repo.buscarMagiaDescricao(magia.getId());
-					List<String> componentes = repo.buscarMagiaComponentes(magia.getId());
-					List<String> niveis_acima = repo.buscarMagiaNiveisAcima(magia.getId());
-					List<Classe> classes = repo.buscarMagiaClasses(magia.getId());
+					Magia magia = service.buscarMagiaPorNome(msg);
 					
 					EmbedBuilder eb = new EmbedBuilder();
 					
@@ -44,13 +39,13 @@ public class MagiaEvent extends ListenerAdapter {
 						}
 					}
 					
-					eb.addField("Classes: ", classes.toString().toLowerCase(), false);
+					eb.addField("Classes: ", magia.getClasses().toString().toLowerCase(), false);
 					eb.addField("Tempo de Conjuração: ", magia.getTempoDeConjuracao(), false);
 					eb.addField("Alcance: ", magia.getAlcance(), false);
 					if(magia.getMaterial() != null) {
-						eb.addField("Componentes: ", componentes.toString() + " (" + magia.getMaterial() + ")", false);
+						eb.addField("Componentes: ", magia.getComponentes().toString() + " (" + magia.getMaterial() + ")", false);
 					} else {
-						eb.addField("Componentes: ", componentes.toString(), false);
+						eb.addField("Componentes: ", magia.getComponentes().toString(), false);
 					}
 					
 					if(magia.isConcentracao()) {
@@ -59,13 +54,13 @@ public class MagiaEvent extends ListenerAdapter {
 						eb.addField("Duração: ", magia.getDuracao(), false);
 					}
 					
-					for(int i = 0; i < descricao.size(); i++) {
-						eb.addField("", descricao.get(i), false);
+					for(int i = 0; i < magia.getDescricao().size(); i++) {
+						eb.addField("", magia.getDescricao().get(i), false);
 					}
 					
-					if(niveis_acima != null) {
-						for(int i = 0; i < niveis_acima.size(); i++) {
-							eb.addField("", niveis_acima.get(i), false);
+					if(magia.getNiveisAcima() != null) {
+						for(int i = 0; i < magia.getNiveisAcima().size(); i++) {
+							eb.addField("", magia.getNiveisAcima().get(i), false);
 						}
 					}
 					
