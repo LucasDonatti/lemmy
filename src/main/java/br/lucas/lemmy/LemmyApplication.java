@@ -21,7 +21,7 @@ public class LemmyApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-	    JDABuilder builder = JDABuilder.createDefault("ODk0NjIwNjM3MDQ0MzAxODY2.YVsqZQ.szqrj4nIz7js1K42K6xzfuXufSI");
+	    JDABuilder builder = JDABuilder.createDefault("");
 	    builder.addEventListeners(magia);
 	    builder.build();
 
