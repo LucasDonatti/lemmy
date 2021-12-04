@@ -58,8 +58,9 @@ public class MagiaEvent extends ListenerAdapter {
 						eb.addField("", magia.getDescricao().get(i), false);
 					}
 					
-					if(magia.getNiveisAcima() != null) {
-						for(int i = 0; i < magia.getNiveisAcima().size(); i++) {
+					if(magia.getNiveisAcima().size() > 0) {
+						eb.addField("Em Níveis Superiores. ", magia.getNiveisAcima().get(0), false);
+						for(int i = 1; i < magia.getNiveisAcima().size(); i++) {
 							eb.addField("", magia.getNiveisAcima().get(i), false);
 						}
 					}
