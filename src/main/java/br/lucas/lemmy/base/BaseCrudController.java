@@ -23,31 +23,31 @@ public class BaseCrudController<ENTITY extends BaseEntity,
 	private SERVICE service;
 	
 	@GetMapping
-	public List<ENTITY> getAll() {
+	public List<ENTITY> obterTodos() {
 		return service.obterTodos();
 	}
 	
 	@GetMapping("/{id}")
-	public ENTITY getById(@PathVariable("id") String id) {
+	public ENTITY obterPeloId(@PathVariable("id") String id) {
 		return service.obterPeloId(id);
 	}
 	
 	@PostMapping
 	@ResponseStatus(value = HttpStatus.CREATED)
-	public String post(@RequestBody ENTITY nova) {
+	public String criar(@RequestBody ENTITY nova) {
 		nova = service.criar(nova);
 		return nova.getId();
 	}
 	
-	@PostMapping("/post-many")
+	@PostMapping("/criar-varios")
 	@ResponseStatus(value = HttpStatus.CREATED)
-	public List<ENTITY> postMany(@RequestBody List<ENTITY> novas) {
+	public List<ENTITY> criarVarios(@RequestBody List<ENTITY> novas) {
 		novas = service.criarVarios(novas);
 		return novas;
 	}
 	
 	@PutMapping("/{id}")
-	public void put(@PathVariable("id") String id, @RequestBody ENTITY modificada) {
+	public void atualizar(@PathVariable("id") String id, @RequestBody ENTITY modificada) {
 		if(!id.equals(modificada.getId())) {
 			throw new RequisicaoPutInvalida();
 		}
@@ -55,7 +55,7 @@ public class BaseCrudController<ENTITY extends BaseEntity,
 	}
 	
 	@DeleteMapping("/{id}")
-	public void deleteById(@PathVariable("id") String id) {
+	public void excluirPeloId(@PathVariable("id") String id) {
 		service.excluirPeloId(id);
 	}
 	

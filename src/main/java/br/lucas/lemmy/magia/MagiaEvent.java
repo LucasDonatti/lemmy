@@ -22,7 +22,7 @@ public class MagiaEvent extends ListenerAdapter {
 			String msg = evento.getMessage().getContentRaw();
 			if(msg.startsWith(bot.getPrefixo())) {
 				
-				msg = msg.substring(bot.getPrefixoTam()).trim();
+				msg = msg.substring(bot.getTamanhoDoPrefixo()).trim();
 				try {
 					
 					Magia magia = service.buscarMagiaPorNome(msg);

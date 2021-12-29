@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Bot {
 	private String prefixo = "!lm";
-	private int prefixoTam = prefixo.length();
+	private Integer tamanhoDoPrefixo = prefixo.length();
 	
 	public Bot() {
 	}
@@ -16,11 +16,11 @@ public class Bot {
 	public void setPrefixo(String prefixo) {
 		this.prefixo = prefixo;
 	}
-	public int getPrefixoTam() {
-		return prefixoTam;
+	public Integer getTamanhoDoPrefixo() {
+		return tamanhoDoPrefixo;
 	}
-	public void setPrefixoTam(int prefixoTam) {
-		this.prefixoTam = prefixoTam;
+	public void setTamanhoDoPrefixo(Integer tamanhoDoPrefixo) {
+		this.tamanhoDoPrefixo = tamanhoDoPrefixo;
 	}
 	
 }

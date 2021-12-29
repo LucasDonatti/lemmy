@@ -54,7 +54,7 @@ public class Magia extends BaseEntity {
 	@Enumerated(EnumType.STRING)
 	private Escola escola;
 	
-	@Column(nullable = false)
+	@Column(name = "classe", nullable = false)
 	@Enumerated(EnumType.STRING)
 	@ElementCollection(targetClass = Classe.class)
 	private List<Classe> classes;

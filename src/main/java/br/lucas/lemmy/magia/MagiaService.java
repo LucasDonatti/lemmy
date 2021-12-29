@@ -12,15 +12,15 @@ import br.lucas.lemmy.base.BaseCrudService;
 public class MagiaService extends BaseCrudService<Magia, MagiaRepository> {
 
 	@Autowired
-	private MagiaRepository repo;
+	private MagiaRepository repository;
 
 	public Magia buscarMagiaPorNome(String nome) {
 		
-		Magia magia = repo.buscarMagiaPeloNome(nome).get(0);
-		magia.setDescricao(repo.buscarMagiaDescricaoPeloId(magia.getId()));
-		magia.setComponentes(repo.buscarMagiaComponentesPeloId(magia.getId()));
-		magia.setNiveisAcima(repo.buscarMagiaNiveisAcimaPeloId(magia.getId()));
-		magia.setClasses(repo.buscarMagiaClassesPeloId(magia.getId()));
+		Magia magia = repository.buscarPeloNome(nome).get(0);
+		magia.setDescricao(repository.buscarDescricaoPeloId(magia.getId()));
+		magia.setComponentes(repository.buscarComponentesPeloId(magia.getId()));
+		magia.setNiveisAcima(repository.buscarNiveisAcimaPeloId(magia.getId()));
+		magia.setClasses(repository.buscarClassesPeloId(magia.getId()));
 		
 		return magia;
 		

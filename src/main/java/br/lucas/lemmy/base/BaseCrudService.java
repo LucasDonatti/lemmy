@@ -12,46 +12,46 @@ public class BaseCrudService<ENTITY extends BaseEntity,
 							 REPOSITORY extends JpaRepository<ENTITY, String>> {
 
 	@Autowired
-	private REPOSITORY repo;
+	private REPOSITORY repository;
 	
 	public List<ENTITY> obterTodos() {
-		return repo.findAll();
+		return repository.findAll();
 	}
 
 	public ENTITY obterPeloId(String id) {
 		try {
-			return repo.findById(id).get();
+			return repository.findById(id).get();
 		} catch (Exception e) {
 			throw new RegistroNaoExistente();
 		}
 	}
 
 	public ENTITY criar(ENTITY nova) {
-		if(repo.findById(nova.getId()).isPresent()) {
+		if(repository.findById(nova.getId()).isPresent()) {
 			throw new RegistroJaExistente();
 		}
-		return repo.save(nova);
+		return repository.save(nova);
 	}
 
 	public List<ENTITY> criarVarios(List<ENTITY> novas) {
 		for(int i = 0; i < novas.size(); i++) {
-			if(repo.findById(novas.get(i).getId()).isPresent()) {
+			if(repository.findById(novas.get(i).getId()).isPresent()) {
 				throw new RegistroJaExistente();
 			}
 		}
-		return repo.saveAllAndFlush(novas);
+		return repository.saveAllAndFlush(novas);
 	}
 
 	public void atualizar(ENTITY modificada) {
-		if(!repo.findById(modificada.getId()).isPresent()) {
+		if(!repository.findById(modificada.getId()).isPresent()) {
 			throw new RegistroNaoExistente();
 		}
-		repo.save(modificada);
+		repository.save(modificada);
 	}
 
 	public void excluirPeloId(String id) {
 		try {
-			repo.deleteById(id);
+			repository.deleteById(id);
 		} catch (Exception e) {
 			throw new RegistroNaoExistente();
 		}
