@@ -168,8 +168,6 @@
 			let ritual = document.querySelector('input[name="ritual"]:checked').value
 			let concentracao = document.querySelector('input[name="concentracao"]:checked').value
 			
-			verificarQuebraDeLinha(descricao)
-			
 			console.log('             nome: ' + nome)
 			console.log('          alcance: ' + alcance)
 			console.log('          duracao: ' + duracao)
@@ -179,10 +177,11 @@
 			console.log('         material: ' + material)
 			console.log('           ritual: ' + ritual)
 			console.log('     concentracao: ' + concentracao)
+			console.log('        descricao: ' + descricao)
 			
 			axios.post('http://localhost:3035/api/magias', {
 				nome: nome,
-				descricao: [],
+				descricao: descricao,
 				niveisAcima: [],
 				alcance: alcance,
 				componentes: [],
