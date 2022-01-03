@@ -164,9 +164,16 @@
 			let tempoDeConjuracao = document.querySelector('#tempoDeConjuracao').value
 			let nivel = document.querySelector('#nivel').value
 			let escola = document.querySelector('#escola').value
+			let componentes = []
+			let buscarComponentes = document.querySelectorAll('input[name="componentes"]:checked')
+			for(let i = 0; i < buscarComponentes.length; i++) {
+				componentes[i] = buscarComponentes[i].value
+			}
 			let material = document.querySelector('#material').value
 			let ritual = document.querySelector('input[name="ritual"]:checked').value
 			let concentracao = document.querySelector('input[name="concentracao"]:checked').value
+			let descricao = document.querySelector('#descricao').value.split('\n')
+			let niveisAcima = document.querySelector('#niveisAcima').value.split('\n')
 			
 			console.log('             nome: ' + nome)
 			console.log('          alcance: ' + alcance)
@@ -174,17 +181,25 @@
 			console.log('tempoDeConjuracao: ' + tempoDeConjuracao)
 			console.log('            nivel: ' + nivel)
 			console.log('           escola: ' + escola)
+			for(let i = 0; i < componentes.length; i++) {
+				console.log('   componentes['+i+']: ' + componentes[i])
+			}
 			console.log('         material: ' + material)
 			console.log('           ritual: ' + ritual)
 			console.log('     concentracao: ' + concentracao)
-			console.log('        descricao: ' + descricao)
+			for(let i = 0; i < descricao.length; i++) {
+				console.log('     descricao['+i+']: ' + descricao[i])
+			}
+			for(let i = 0; i < niveisAcima.length; i++) {
+				console.log('   niveisAcima['+i+']: ' + niveisAcima[i])
+			}
 			
 			axios.post('http://localhost:3035/api/magias', {
 				nome: nome,
 				descricao: descricao,
-				niveisAcima: [],
+				niveisAcima: niveisAcima,
 				alcance: alcance,
-				componentes: [],
+				componentes: componentes,
 				material: material,
 				ritual: ritual,
 				duracao: duracao,
