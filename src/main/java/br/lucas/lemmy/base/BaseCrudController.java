@@ -39,18 +39,10 @@ public class BaseCrudController<ENTITY extends BaseEntity,
 		return nova.getId();
 	}
 	
-	@PostMapping("/criar-varios")
-	@ResponseStatus(value = HttpStatus.CREATED)
-	public List<ENTITY> criarVarios(@RequestBody List<ENTITY> novas) {
-		novas = service.criarVarios(novas);
-		return novas;
-	}
-	
 	@PutMapping("/{id}")
 	public void atualizar(@PathVariable("id") String id, @RequestBody ENTITY modificada) {
-		if(!id.equals(modificada.getId())) {
+		if(!id.equals(modificada.getId())) 
 			throw new RequisicaoPutInvalida();
-		}
 		service.atualizar(modificada);
 	}
 	
