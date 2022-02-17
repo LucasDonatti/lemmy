@@ -1,4 +1,4 @@
-package br.lucas.lemmy.magia;
+package br.lucas.lemmy.magia.classe;
 
 public enum Classe {
 	BARDO,

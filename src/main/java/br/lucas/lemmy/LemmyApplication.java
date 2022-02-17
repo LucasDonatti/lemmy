@@ -12,7 +12,7 @@ import net.dv8tion.jda.api.JDABuilder;
 public class LemmyApplication implements CommandLineRunner {
 
 	@Autowired
-	private MagiaEvent magiaEvento;
+	private MagiaEvent magiaEvent;
 	
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(LemmyApplication.class, args);
@@ -21,9 +21,9 @@ public class LemmyApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-//	    JDABuilder jdaConstrutor = JDABuilder.createDefault("");
-//	    jdaConstrutor.addEventListeners(magiaEvento);
-//	    jdaConstrutor.build();
+	    JDABuilder jdaConstrutor = JDABuilder.createDefault("");
+	    jdaConstrutor.addEventListeners(magiaEvent);
+	    jdaConstrutor.build();
 
 	}
 

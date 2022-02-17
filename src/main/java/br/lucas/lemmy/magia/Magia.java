@@ -9,6 +9,8 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
 import br.lucas.lemmy.base.BaseEntity;
+import br.lucas.lemmy.magia.classe.Classe;
+import br.lucas.lemmy.magia.escola.Escola;
 
 @Entity
 public class Magia extends BaseEntity {
@@ -58,7 +60,6 @@ public class Magia extends BaseEntity {
 	@Enumerated(EnumType.STRING)
 	@ElementCollection(targetClass = Classe.class)
 	private List<Classe> classes;
-	
 	
 	public String getIndice() {
 		return indice;

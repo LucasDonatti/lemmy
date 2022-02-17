@@ -14,22 +14,52 @@
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 	<title>Lemmy Forms</title>
+
+	<style>
+		.container {
+			width: 600px;
+			display: flex;
+			flex-direction: column;
+		}
+
+		.formClasses {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.formRitual {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.formConcentracao {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.formComponentes {
+			display: flex;
+			flex-direction: column;
+		}
+
+	</style>
+
 </head>
 
 <body>
-	<div class="container">
-		<h1 class="display-4">Cadastro de Magia</h1>
+	<div class="container my-5">
+		<h1 class="display-4 tituloPrincipal">Cadastro de Magia</h1>
 		<form>
-			<div class="row">
-				<div class="col">
+			<div class="row linha1">
+				<div class="col-5 nome">
 					<div class="form-group">
 						<label for="nome" class="h6">Nome</label>
 						<input type="text" name="nome" id="nome" class="form-control">
 					</div>
 				</div>
 				<!-- F I M   D A   C O L U N A   N O M E -->
-				<div class="col">
-					<div class="form-group">
+				<div class="col colunaNivel">
+					<div class="form-group formNivel">
 						<label for="nivel" class="h6">Nível</label>
 						<select id="nivel" class="form-control">
 							<option value="0" selected>Truque</option>
@@ -46,8 +76,8 @@
 					</div>
 				</div>
 				<!-- F I M   D A   C O L U N A   N Í V E L -->
-				<div class="col">
-					<div class="form-group">
+				<div class="col colunaEscola">
+					<div class="form-group formEscola">
 						<label for="escola" class="h6">Escola</label>
 						<select id="escola" class="form-control">
 							<option value="ABJURAÇÃO" selected>Abjuração</option>
@@ -64,10 +94,10 @@
 				<!-- F I M   D A   C O L U N A   E S C O L A -->
 			</div>
 			<!-- F I M   D A   1 ª   L I N H A -->
-			<div class="row">
-				<div class="col">
+			<div class="row linha2">
+				<div class="col colunaClasses">
 					<label for="classes" class="h6">Classes</label>
-					<div class="form-group">
+					<div class="form-group formClasses">
 						<div class="form-check-inline">
 							<input class="form-check-input" type="checkbox" name="classes" id="bardo" value="BARDO">
 							<label class="form-check-label" for="bardo">Bardo</label>
@@ -105,12 +135,9 @@
 						</div>
 					</div>
 				</div>
-			</div>
-			<!-- F I M   D A   2 ª   L I N H A -->
-			<div class="row">
-				<div class="col">
+				<div class="col colunaRitual">
 					<label for="ritual" class="h6">Ritual</label>
-					<div class="form-group">
+					<div class="form-group formRitual">
 						<div class="form-check-inline">
 							<input class="form-check-input" type="radio" name="ritual" id="ritualFalse" value="false"
 								checked>
@@ -123,9 +150,9 @@
 					</div>
 				</div>
 				<!-- F I M   D A   C O L U N A   R I T U A L -->
-				<div class="col">
+				<div class="col colunaConcentracao">
 					<label for="concentracao" class="h6">Concentração</label>
-					<div class="form-group">
+					<div class="form-group formConcentracao">
 						<div class="form-check-inline">
 							<input class="form-check-input" type="radio" name="concentracao" id="concentracaoFalse"
 								value="false" checked>
@@ -139,9 +166,9 @@
 					</div>
 				</div>
 				<!-- F I M   D A   C O L U N A   C O N C E N T R A Ç Ã O -->
-				<div class="col">
+				<div class="col colunaComponentes">
 					<label for="componentes" class="h6">Componentes</label>
-					<div class="form-group">
+					<div class="form-group formComponentes">
 						<div class="form-check-inline">
 							<input class="form-check-input" type="checkbox" name="componentes" id="compVerbal"
 								value="V">
@@ -161,29 +188,29 @@
 				</div>
 				<!-- F I M   D A   C O L U N A   C O M P O N E N T E S -->
 			</div>
-			<!-- F I M   D A   3 ª   L I N H A -->
-			<div class="form-group">
+			<!-- F I M   D A   2 ª   L I N H A -->
+			<div class="form-group formMaterial">
 				<label for="material" class="h6">Material</label>
 				<textarea name="material" id="material" class="form-control" rows="2"></textarea>
 			</div>
 			<!-- F I M   D O   C A M P O   M A T E R I A L -->
-			<div class="row">
-				<div class="col">
-					<div class="form-group">
+			<div class="row linha4">
+				<div class="col colunaTempoDeConjuracao">
+					<div class="form-group formTempoDeConjuracao">
 						<label for="tempoDeConjuracao" class="h6">Tempo de Conjuração</label>
 						<input type="text" name="tempoDeConjuracao" id="tempoDeConjuracao" class="form-control">
 					</div>
 				</div>
 				<!-- F I M   D A   C O L U N A   T E M P O   D E   C O N J U R A Ç Ã O -->
-				<div class="col">
-					<div class="form-group">
+				<div class="col colunaAlcance">
+					<div class="form-group formAlcance">
 						<label for="alcance" class="h6">Alcance</label>
 						<input type="text" name="alcance" id="alcance" class="form-control">
 					</div>
 				</div>
 				<!-- F I M   D A   C O L U N A   A L C A N C E -->
-				<div class="col">
-					<div class="form-group">
+				<div class="col colunaDuracao">
+					<div class="form-group formDuracao">
 						<label for="duracao" class="h6">Duração</label>
 						<input type="text" name="duracao" id="duracao" class="form-control">
 					</div>
@@ -191,12 +218,12 @@
 				<!-- F I M   D A   C O L U N A   D U R A Ç Ã O -->
 			</div>
 			<!-- F I M   D A   4 ª   L I N H A -->
-			<div class="form-group">
+			<div class="form-group formDescricao">
 				<label for="descricao" class="h6">Descrição</label>
 				<textarea name="descricao" id="descricao" class="form-control" rows="10"></textarea>
 			</div>
 			<!-- F I M   D O   C A M P O   D E S C R I Ç Ã O -->
-			<div class="form-group">
+			<div class="form-group formNiveisAcima">
 				<label for="niveisAcima" class="h6">Níveis Acima</label>
 				<textarea name="niveisAcima" id="niveisAcima" class="form-control" rows="5"></textarea>
 			</div>
@@ -269,7 +296,9 @@
 			escola: escola,
 			classes: classes
 		}).then(response => {console.log(response.data)})
-			.catch(erro => {console.log(erro)})
+		  .catch(erro => {console.log(erro)})
+		
+		alert("Magia adicionada.")
 	}
 
 </script>

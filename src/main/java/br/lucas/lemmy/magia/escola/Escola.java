@@ -1,4 +1,4 @@
-package br.lucas.lemmy.magia;
+package br.lucas.lemmy.magia.escola;
 
 public enum Escola {
 	ABJURAÇÃO,

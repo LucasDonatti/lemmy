@@ -23,31 +23,31 @@ public class BaseCrudController<ENTITY extends BaseEntity,
 	private SERVICE service;
 	
 	@GetMapping
-	public List<ENTITY> obterTodos() {
+	public List<ENTITY> getAll() {
 		return service.obterTodos();
 	}
 	
 	@GetMapping("/{id}")
-	public ENTITY obterPeloId(@PathVariable("id") String id) {
+	public ENTITY getById(@PathVariable("id") String id) {
 		return service.obterPeloId(id);
 	}
 	
 	@PostMapping
 	@ResponseStatus(value = HttpStatus.CREATED)
-	public String criar(@RequestBody ENTITY nova) {
+	public String post(@RequestBody ENTITY nova) {
 		nova = service.criar(nova);
 		return nova.getId();
 	}
 	
 	@PutMapping("/{id}")
-	public void atualizar(@PathVariable("id") String id, @RequestBody ENTITY modificada) {
+	public void put(@PathVariable("id") String id, @RequestBody ENTITY modificada) {
 		if(!id.equals(modificada.getId())) 
 			throw new RequisicaoPutInvalida();
 		service.atualizar(modificada);
 	}
 	
 	@DeleteMapping("/{id}")
-	public void excluirPeloId(@PathVariable("id") String id) {
+	public void delete(@PathVariable("id") String id) {
 		service.excluirPeloId(id);
 	}
 	
