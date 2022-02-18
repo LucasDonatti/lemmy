@@ -1,0 +1,30 @@
+.container {
+	width: 600px;
+	display: flex;
+	flex-direction: column;
+}
+
+.card {
+	display: flex;
+	flex-flow: row;
+}
+
+.formClasses {
+	display: flex;
+	flex-direction: column;
+}
+
+.formRitual {
+	display: flex;
+	flex-direction: column;
+}
+
+.formConcentracao {
+	display: flex;
+	flex-direction: column;
+}
+
+.formComponentes {
+	display: flex;
+	flex-direction: column;
+}

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
 	<!-- Required meta tags -->
@@ -7,300 +7,60 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-	<!-- Axios -->
-	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<!-- CSS -->
+	<link rel="stylesheet" href="styles.css">
 
 	<title>Lemmy Forms</title>
-
-	<style>
-		.container {
-			width: 600px;
-			display: flex;
-			flex-direction: column;
-		}
-
-		.formClasses {
-			display: flex;
-			flex-direction: column;
-		}
-
-		.formRitual {
-			display: flex;
-			flex-direction: column;
-		}
-
-		.formConcentracao {
-			display: flex;
-			flex-direction: column;
-		}
-
-		.formComponentes {
-			display: flex;
-			flex-direction: column;
-		}
-
-	</style>
-
 </head>
 
 <body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item navGetItem active">
+					<a class="nav-link navGetLink" href="#">GET <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item navPostItem">
+					<a class="nav-link navPostLink" href="postMagia.html">POST</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<!-- F I M   D A   N A V B A R -->
 	<div class="container my-5">
-		<h1 class="display-4 tituloPrincipal">Cadastro de Magia</h1>
-		<form>
-			<div class="row linha1">
-				<div class="col-5 nome">
-					<div class="form-group">
-						<label for="nome" class="h6">Nome</label>
-						<input type="text" name="nome" id="nome" class="form-control">
-					</div>
-				</div>
-				<!-- F I M   D A   C O L U N A   N O M E -->
-				<div class="col colunaNivel">
-					<div class="form-group formNivel">
-						<label for="nivel" class="h6">Nível</label>
-						<select id="nivel" class="form-control">
-							<option value="0" selected>Truque</option>
-							<option value="1">1º Nível</option>
-							<option value="2">2º Nível</option>
-							<option value="3">3º Nível</option>
-							<option value="4">4º Nível</option>
-							<option value="5">5º Nível</option>
-							<option value="6">6º Nível</option>
-							<option value="7">7º Nível</option>
-							<option value="8">8º Nível</option>
-							<option value="9">9º Nível</option>
-						</select>
-					</div>
-				</div>
-				<!-- F I M   D A   C O L U N A   N Í V E L -->
-				<div class="col colunaEscola">
-					<div class="form-group formEscola">
-						<label for="escola" class="h6">Escola</label>
-						<select id="escola" class="form-control">
-							<option value="ABJURAÇÃO" selected>Abjuração</option>
-							<option value="ADIVINHAÇÃO">Adivinhação</option>
-							<option value="CONJURAÇÃO">Conjuração</option>
-							<option value="ENCANTAMENTO">Encantamento</option>
-							<option value="EVOCAÇÃO">Evocação</option>
-							<option value="ILUSÃO">Ilusão</option>
-							<option value="NECROMANCIA">Necromancia</option>
-							<option value="TRANSMUTAÇÃO">Transmutação</option>
-						</select>
-					</div>
-				</div>
-				<!-- F I M   D A   C O L U N A   E S C O L A -->
+		<h1 class="display-4 tituloPrincipal">GET Magia</h1>
+		<div class="card" style="width: 18rem;">
+			<div class="card-body">
+				<h5 class="card-title">magia01</h5>
+				<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				<a href="#" class="btn btn-primary">Go somewhere</a>
 			</div>
-			<!-- F I M   D A   1 ª   L I N H A -->
-			<div class="row linha2">
-				<div class="col colunaClasses">
-					<label for="classes" class="h6">Classes</label>
-					<div class="form-group formClasses">
-						<div class="form-check-inline">
-							<input class="form-check-input" type="checkbox" name="classes" id="bardo" value="BARDO">
-							<label class="form-check-label" for="bardo">Bardo</label>
-						</div>
-						<div class="form-check-inline">
-							<input class="form-check-input" type="checkbox" name="classes" id="bruxo" value="BRUXO">
-							<label class="form-check-label" for="bruxo">Bruxo</label>
-						</div>
-						<div class="form-check-inline">
-							<input class="form-check-input" type="checkbox" name="classes" id="clerigo" value="CLÉRIGO">
-							<label class="form-check-label" for="clerigo">Clérigo</label>
-						</div>
-						<div class="form-check-inline">
-							<input class="form-check-input" type="checkbox" name="classes" id="druida" value="DRUIDA">
-							<label class="form-check-label" for="druida">Druida</label>
-						</div>
-						<div class="form-check-inline">
-							<input class="form-check-input" type="checkbox" name="classes" id="feiticeiro"
-								value="FEITICEIRO">
-							<label class="form-check-label" for="feiticeiro">Feiticeiro</label>
-						</div>
-						<div class="form-check-inline">
-							<input class="form-check-input" type="checkbox" name="classes" id="mago" value="MAGO">
-							<label class="form-check-label" for="mago">Mago</label>
-						</div>
-						<div class="form-check-inline">
-							<input class="form-check-input" type="checkbox" name="classes" id="paladino"
-								value="PALADINO">
-							<label class="form-check-label" for="paladino">Paladino</label>
-						</div>
-						<div class="form-check-inline">
-							<input class="form-check-input" type="checkbox" name="classes" id="patrulheiro"
-								value="PATRULHEIRO">
-							<label class="form-check-label" for="patrulheiro">Patrulheiro</label>
-						</div>
-					</div>
-				</div>
-				<div class="col colunaRitual">
-					<label for="ritual" class="h6">Ritual</label>
-					<div class="form-group formRitual">
-						<div class="form-check-inline">
-							<input class="form-check-input" type="radio" name="ritual" id="ritualFalse" value="false"
-								checked>
-							<label class="form-check-label" for="ritualFalse">Não</label>
-						</div>
-						<div class="form-check-inline">
-							<input class="form-check-input" type="radio" name="ritual" id="ritualTrue" value="true">
-							<label class="form-check-label" for="ritualTrue">Sim</label>
-						</div>
-					</div>
-				</div>
-				<!-- F I M   D A   C O L U N A   R I T U A L -->
-				<div class="col colunaConcentracao">
-					<label for="concentracao" class="h6">Concentração</label>
-					<div class="form-group formConcentracao">
-						<div class="form-check-inline">
-							<input class="form-check-input" type="radio" name="concentracao" id="concentracaoFalse"
-								value="false" checked>
-							<label class="form-check-label" for="concentracaoFalse">Não</label>
-						</div>
-						<div class="form-check-inline">
-							<input class="form-check-input" type="radio" name="concentracao" id="concentracaoTrue"
-								value="true">
-							<label class="form-check-label" for="concentracaoTrue">Sim</label>
-						</div>
-					</div>
-				</div>
-				<!-- F I M   D A   C O L U N A   C O N C E N T R A Ç Ã O -->
-				<div class="col colunaComponentes">
-					<label for="componentes" class="h6">Componentes</label>
-					<div class="form-group formComponentes">
-						<div class="form-check-inline">
-							<input class="form-check-input" type="checkbox" name="componentes" id="compVerbal"
-								value="V">
-							<label class="form-check-label" for="compVerbal">V</label>
-						</div>
-						<div class="form-check-inline">
-							<input class="form-check-input" type="checkbox" name="componentes" id="compSomatico"
-								value="S">
-							<label class="form-check-label" for="compSomatico">S</label>
-						</div>
-						<div class="form-check-inline">
-							<input class="form-check-input" type="checkbox" name="componentes" id="compMaterial"
-								value="M">
-							<label class="form-check-label" for="compMaterial">M</label>
-						</div>
-					</div>
-				</div>
-				<!-- F I M   D A   C O L U N A   C O M P O N E N T E S -->
+			<div class="card-body">
+				<h5 class="card-title">magia02</h5>
+				<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				<a href="#" class="btn btn-primary">Go somewhere</a>
 			</div>
-			<!-- F I M   D A   2 ª   L I N H A -->
-			<div class="form-group formMaterial">
-				<label for="material" class="h6">Material</label>
-				<textarea name="material" id="material" class="form-control" rows="2"></textarea>
+			<div class="card-body">
+				<h5 class="card-title">magia03</h5>
+				<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				<a href="#" class="btn btn-primary">Go somewhere</a>
 			</div>
-			<!-- F I M   D O   C A M P O   M A T E R I A L -->
-			<div class="row linha4">
-				<div class="col colunaTempoDeConjuracao">
-					<div class="form-group formTempoDeConjuracao">
-						<label for="tempoDeConjuracao" class="h6">Tempo de Conjuração</label>
-						<input type="text" name="tempoDeConjuracao" id="tempoDeConjuracao" class="form-control">
-					</div>
-				</div>
-				<!-- F I M   D A   C O L U N A   T E M P O   D E   C O N J U R A Ç Ã O -->
-				<div class="col colunaAlcance">
-					<div class="form-group formAlcance">
-						<label for="alcance" class="h6">Alcance</label>
-						<input type="text" name="alcance" id="alcance" class="form-control">
-					</div>
-				</div>
-				<!-- F I M   D A   C O L U N A   A L C A N C E -->
-				<div class="col colunaDuracao">
-					<div class="form-group formDuracao">
-						<label for="duracao" class="h6">Duração</label>
-						<input type="text" name="duracao" id="duracao" class="form-control">
-					</div>
-				</div>
-				<!-- F I M   D A   C O L U N A   D U R A Ç Ã O -->
+			<div class="card-body">
+				<h5 class="card-title">magia04</h5>
+				<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				<a href="#" class="btn btn-primary">Go somewhere</a>
 			</div>
-			<!-- F I M   D A   4 ª   L I N H A -->
-			<div class="form-group formDescricao">
-				<label for="descricao" class="h6">Descrição</label>
-				<textarea name="descricao" id="descricao" class="form-control" rows="10"></textarea>
-			</div>
-			<!-- F I M   D O   C A M P O   D E S C R I Ç Ã O -->
-			<div class="form-group formNiveisAcima">
-				<label for="niveisAcima" class="h6">Níveis Acima</label>
-				<textarea name="niveisAcima" id="niveisAcima" class="form-control" rows="5"></textarea>
-			</div>
-			<!-- F I M   D O   C A M P O   N Í V E I S   A C I M A -->
-			<button type="button" class="btn btn-primary btn-lg btn-block" onclick="postAoClicar()">Adicionar Magia</button>
-		</form>
+		</div>
 	</div>
 	<!-- F I M   D O   C O N T A I N E R -->
 </body>
-<script type="text/javascript">
 
-	function postAoClicar() {
+<!-- Axios -->
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-		let nome = document.querySelector('#nome').value
-		let alcance = document.querySelector('#alcance').value
-		let duracao = document.querySelector('#duracao').value
-		let tempoDeConjuracao = document.querySelector('#tempoDeConjuracao').value
-		let nivel = document.querySelector('#nivel').value
-		let escola = document.querySelector('#escola').value
-		let classes = []
-		let buscarClasses = document.querySelectorAll('input[name="classes"]:checked')
-		for (let i = 0; i < buscarClasses.length; i++) {
-			classes[i] = buscarClasses[i].value
-		}
-		let componentes = []
-		let buscarComponentes = document.querySelectorAll('input[name="componentes"]:checked')
-		for (let i = 0; i < buscarComponentes.length; i++) {
-			componentes[i] = buscarComponentes[i].value
-		}
-		let material = document.querySelector('#material').value
-		let ritual = document.querySelector('input[name="ritual"]:checked').value
-		let concentracao = document.querySelector('input[name="concentracao"]:checked').value
-		let descricao = document.querySelector('#descricao').value.split('\n')
-		let niveisAcima = document.querySelector('#niveisAcima').value.split('\n')
-
-		console.log('             nome: ' + nome)
-		console.log('          alcance: ' + alcance)
-		console.log('          duracao: ' + duracao)
-		console.log('tempoDeConjuracao: ' + tempoDeConjuracao)
-		console.log('            nivel: ' + nivel)
-		console.log('           escola: ' + escola)
-		for (let i = 0; i < classes.length; i++) {
-			console.log('        classe[' + i + ']: ' + classes[i])
-		}
-		for (let i = 0; i < componentes.length; i++) {
-			console.log('    componente[' + i + ']: ' + componentes[i])
-		}
-		console.log('         material: ' + material)
-		console.log('           ritual: ' + ritual)
-		console.log('     concentracao: ' + concentracao)
-		for (let i = 0; i < descricao.length; i++) {
-			console.log('     descricao[' + i + ']: ' + descricao[i])
-		}
-		for (let i = 0; i < niveisAcima.length; i++) {
-			console.log('   niveisAcima[' + i + ']: ' + niveisAcima[i])
-		}
-
-		axios.post('http://localhost:3035/api/magias', {
-			nome: nome,
-			descricao: descricao,
-			niveisAcima: niveisAcima,
-			alcance: alcance,
-			componentes: componentes,
-			material: material,
-			ritual: ritual,
-			duracao: duracao,
-			concentracao: concentracao,
-			tempoDeConjuracao: tempoDeConjuracao,
-			nivel: nivel,
-			escola: escola,
-			classes: classes
-		}).then(response => {console.log(response.data)})
-		  .catch(erro => {console.log(erro)})
-		
-		alert("Magia adicionada.")
-	}
-
-</script>
+<!-- JS -->
+<script src="script.js"></script>
 
 </html>

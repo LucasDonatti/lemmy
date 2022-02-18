@@ -1,0 +1,218 @@
+<html>
+<head>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="styles.css">
+
+	<title>Lemmy Forms</title>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item navGetItem">
+					<a class="nav-link navGetLink" href="index.html">GET <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item navPostItem active">
+					<a class="nav-link navPostLink" href="#">POST</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<!-- F I M   D A   N A V B A R -->
+	<div class="container my-5">
+		<h1 class="display-4 tituloPrincipal">POST Magia</h1>
+		<form>
+			<div class="row linha1">
+				<div class="col-5 nome">
+					<div class="form-group">
+						<label for="nome" class="h6">Nome</label>
+						<input type="text" name="nome" id="nome" class="form-control">
+					</div>
+				</div>
+				<!-- F I M   D A   C O L U N A   N O M E -->
+				<div class="col colunaNivel">
+					<div class="form-group formNivel">
+						<label for="nivel" class="h6">Nível</label>
+						<select id="nivel" class="form-control">
+							<option value="0" selected>Truque</option>
+							<option value="1">1º Nível</option>
+							<option value="2">2º Nível</option>
+							<option value="3">3º Nível</option>
+							<option value="4">4º Nível</option>
+							<option value="5">5º Nível</option>
+							<option value="6">6º Nível</option>
+							<option value="7">7º Nível</option>
+							<option value="8">8º Nível</option>
+							<option value="9">9º Nível</option>
+						</select>
+					</div>
+				</div>
+				<!-- F I M   D A   C O L U N A   N Í V E L -->
+				<div class="col colunaEscola">
+					<div class="form-group formEscola">
+						<label for="escola" class="h6">Escola</label>
+						<select id="escola" class="form-control">
+							<option value="ABJURAÇÃO" selected>Abjuração</option>
+							<option value="ADIVINHAÇÃO">Adivinhação</option>
+							<option value="CONJURAÇÃO">Conjuração</option>
+							<option value="ENCANTAMENTO">Encantamento</option>
+							<option value="EVOCAÇÃO">Evocação</option>
+							<option value="ILUSÃO">Ilusão</option>
+							<option value="NECROMANCIA">Necromancia</option>
+							<option value="TRANSMUTAÇÃO">Transmutação</option>
+						</select>
+					</div>
+				</div>
+				<!-- F I M   D A   C O L U N A   E S C O L A -->
+			</div>
+			<!-- F I M   D A   1 ª   L I N H A -->
+			<div class="row linha2">
+				<div class="col colunaClasses">
+					<label for="classes" class="h6">Classes</label>
+					<div class="form-group formClasses">
+						<div class="form-check-inline">
+							<input class="form-check-input" type="checkbox" name="classes" id="bardo" value="BARDO">
+							<label class="form-check-label" for="bardo">Bardo</label>
+						</div>
+						<div class="form-check-inline">
+							<input class="form-check-input" type="checkbox" name="classes" id="bruxo" value="BRUXO">
+							<label class="form-check-label" for="bruxo">Bruxo</label>
+						</div>
+						<div class="form-check-inline">
+							<input class="form-check-input" type="checkbox" name="classes" id="clerigo" value="CLÉRIGO">
+							<label class="form-check-label" for="clerigo">Clérigo</label>
+						</div>
+						<div class="form-check-inline">
+							<input class="form-check-input" type="checkbox" name="classes" id="druida" value="DRUIDA">
+							<label class="form-check-label" for="druida">Druida</label>
+						</div>
+						<div class="form-check-inline">
+							<input class="form-check-input" type="checkbox" name="classes" id="feiticeiro"
+								value="FEITICEIRO">
+							<label class="form-check-label" for="feiticeiro">Feiticeiro</label>
+						</div>
+						<div class="form-check-inline">
+							<input class="form-check-input" type="checkbox" name="classes" id="mago" value="MAGO">
+							<label class="form-check-label" for="mago">Mago</label>
+						</div>
+						<div class="form-check-inline">
+							<input class="form-check-input" type="checkbox" name="classes" id="paladino"
+								value="PALADINO">
+							<label class="form-check-label" for="paladino">Paladino</label>
+						</div>
+						<div class="form-check-inline">
+							<input class="form-check-input" type="checkbox" name="classes" id="patrulheiro"
+								value="PATRULHEIRO">
+							<label class="form-check-label" for="patrulheiro">Patrulheiro</label>
+						</div>
+					</div>
+				</div>
+				<div class="col colunaRitual">
+					<label for="ritual" class="h6">Ritual</label>
+					<div class="form-group formRitual">
+						<div class="form-check-inline">
+							<input class="form-check-input" type="radio" name="ritual" id="ritualFalse" value="false"
+								checked>
+							<label class="form-check-label" for="ritualFalse">Não</label>
+						</div>
+						<div class="form-check-inline">
+							<input class="form-check-input" type="radio" name="ritual" id="ritualTrue" value="true">
+							<label class="form-check-label" for="ritualTrue">Sim</label>
+						</div>
+					</div>
+				</div>
+				<!-- F I M   D A   C O L U N A   R I T U A L -->
+				<div class="col colunaConcentracao">
+					<label for="concentracao" class="h6">Concentração</label>
+					<div class="form-group formConcentracao">
+						<div class="form-check-inline">
+							<input class="form-check-input" type="radio" name="concentracao" id="concentracaoFalse"
+								value="false" checked>
+							<label class="form-check-label" for="concentracaoFalse">Não</label>
+						</div>
+						<div class="form-check-inline">
+							<input class="form-check-input" type="radio" name="concentracao" id="concentracaoTrue"
+								value="true">
+							<label class="form-check-label" for="concentracaoTrue">Sim</label>
+						</div>
+					</div>
+				</div>
+				<!-- F I M   D A   C O L U N A   C O N C E N T R A Ç Ã O -->
+				<div class="col colunaComponentes">
+					<label for="componentes" class="h6">Componentes</label>
+					<div class="form-group formComponentes">
+						<div class="form-check-inline">
+							<input class="form-check-input" type="checkbox" name="componentes" id="compVerbal"
+								value="V">
+							<label class="form-check-label" for="compVerbal">V</label>
+						</div>
+						<div class="form-check-inline">
+							<input class="form-check-input" type="checkbox" name="componentes" id="compSomatico"
+								value="S">
+							<label class="form-check-label" for="compSomatico">S</label>
+						</div>
+						<div class="form-check-inline">
+							<input class="form-check-input" type="checkbox" name="componentes" id="compMaterial"
+								value="M">
+							<label class="form-check-label" for="compMaterial">M</label>
+						</div>
+					</div>
+				</div>
+				<!-- F I M   D A   C O L U N A   C O M P O N E N T E S -->
+			</div>
+			<!-- F I M   D A   2 ª   L I N H A -->
+			<div class="form-group formMaterial">
+				<label for="material" class="h6">Material</label>
+				<textarea name="material" id="material" class="form-control" rows="2"></textarea>
+			</div>
+			<!-- F I M   D O   C A M P O   M A T E R I A L -->
+			<div class="row linha4">
+				<div class="col colunaTempoDeConjuracao">
+					<div class="form-group formTempoDeConjuracao">
+						<label for="tempoDeConjuracao" class="h6">Tempo de Conjuração</label>
+						<input type="text" name="tempoDeConjuracao" id="tempoDeConjuracao" class="form-control">
+					</div>
+				</div>
+				<!-- F I M   D A   C O L U N A   T E M P O   D E   C O N J U R A Ç Ã O -->
+				<div class="col colunaAlcance">
+					<div class="form-group formAlcance">
+						<label for="alcance" class="h6">Alcance</label>
+						<input type="text" name="alcance" id="alcance" class="form-control">
+					</div>
+				</div>
+				<!-- F I M   D A   C O L U N A   A L C A N C E -->
+				<div class="col colunaDuracao">
+					<div class="form-group formDuracao">
+						<label for="duracao" class="h6">Duração</label>
+						<input type="text" name="duracao" id="duracao" class="form-control">
+					</div>
+				</div>
+				<!-- F I M   D A   C O L U N A   D U R A Ç Ã O -->
+			</div>
+			<!-- F I M   D A   4 ª   L I N H A -->
+			<div class="form-group formDescricao">
+				<label for="descricao" class="h6">Descrição</label>
+				<textarea name="descricao" id="descricao" class="form-control" rows="10"></textarea>
+			</div>
+			<!-- F I M   D O   C A M P O   D E S C R I Ç Ã O -->
+			<div class="form-group formNiveisAcima">
+				<label for="niveisAcima" class="h6">Níveis Acima</label>
+				<textarea name="niveisAcima" id="niveisAcima" class="form-control" rows="5"></textarea>
+			</div>
+			<!-- F I M   D O   C A M P O   N Í V E I S   A C I M A -->
+			<button type="button" class="btn btn-primary btn-lg btn-block" onclick="postAoClicar()">Adicionar Magia</button>
+		</form>
+	</div>
+	<!-- F I M   D O   C O N T A I N E R -->
+</body>
+
+<!-- Axios -->
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<!-- JS -->
+<script src="script.js"></script>
+
+</html>
